@@ -29,12 +29,14 @@ public class QuestionService : IQuestionService
     public async Task<ServiceResponse<QuestionDto>> GetBaseQuestionById(int id)
     {
         var baseQuestion = await _dbContext.BaseQuestions.Include(q => q.Answers).FirstOrDefaultAsync(q => q.Id == id);
+        if(baseQuestion == null) throw new NotFoundException("Base question not found");
         var mappedQuestion = _mapper.Map<QuestionDto>(baseQuestion);
         return new ServiceResponse<QuestionDto>(mappedQuestion, true, "Base question retrieved");
     }
     public async Task<ServiceResponse<QuestionDto>> GetSpecialQuestionById(int id)
     {
         var specialQuestion = await _dbContext.SpecialQuestions.Include(q => q.Answers).FirstOrDefaultAsync(q => q.Id == id);
+        if(specialQuestion != null) throw new NotFoundException("Special question not found");
         var mappedQuestion = _mapper.Map<QuestionDto>(specialQuestion);
         return new ServiceResponse<QuestionDto>(mappedQuestion, true, "Special question retrieved");
     }

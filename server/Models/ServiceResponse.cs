@@ -1,8 +1,13 @@
 public class ServiceResponse<T>
 {
-    public T Data { get; set; }
+    public T? Data { get; set; }
     public bool Success { get; set; } = true;
     public string Message { get; set; } = string.Empty;
+
+    public ServiceResponse(string message)
+    {
+        Message = message;
+    }
 
     public ServiceResponse(T data, bool success, string message)
     {

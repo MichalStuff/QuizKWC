@@ -5,4 +5,4 @@
 -- TRUNCATE TABLE "Users" RESTART IDENTITY CASCADE;
 
 
--- SELECT * FROM "SpecialAnswers"; 
+SELECT * FROM "Users"; 

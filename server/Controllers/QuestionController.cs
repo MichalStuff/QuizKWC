@@ -27,7 +27,7 @@ public class QuestionController : ControllerBase
         var baseQuestions = await _questionService.GetBaseQuestionById(id);
         return baseQuestions;
     }
-    
+
     [HttpGet("special/{id:int}")]
     public async Task<ServiceResponse<QuestionDto>> GetSpecialQuestion(int id)
     {
