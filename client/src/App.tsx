@@ -4,11 +4,23 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import type { QuestionProps } from "./Compoents/Question";
 import Loading from "./Compoents/Loading";
+import Main from "./Pages/Main";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   useEffect(() => {
     const loadQuestions = async () => {
@@ -29,12 +41,31 @@ const App = () => {
     loadQuestions();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    console.log("loguot");
+  };
+
   if (error) return <div>Error</div>;
 
   return (
     <div className="App">
-      <Menu />
-      {loading ? <Loading /> : <Test questions={questions} />}
+      <Routes>
+        <Route
+          path="/"
+          element={<Main isLoggedIn={isLoggedIn} handleLogout={handleLogout} />}
+        />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/test"
+          element={loading ? <Loading /> : <Test questions={questions} />}
+        />
+      </Routes>
     </div>
   );
 };

@@ -1,0 +1,748 @@
+2026-02-20 20:20:51 [DBG] Connection id "0HNJFVVP08MT6" accepted.
+2026-02-20 20:20:51 [DBG] Connection id "0HNJFVVP08MT6" started.
+2026-02-20 20:20:51 [DBG] Connection id "0HNJFVVP08MT7" accepted.
+2026-02-20 20:20:51 [DBG] Connection id "0HNJFVVP08MT7" started.
+2026-02-20 20:20:51 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.html - null null
+2026-02-20 20:20:51 [DBG] No candidates found for the request path '/index.html'
+2026-02-20 20:20:51 [DBG] Request did not match any endpoints
+2026-02-20 20:20:51 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT6" completed keep alive response.
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.html - 304 null null 494.3703ms
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.css - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/index.css'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui.css - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/swagger-ui.css'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT8" accepted.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT8" started.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT9" accepted.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MTA" accepted.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT9" started.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MTA" started.
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui-bundle.js - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/swagger-ui-bundle.js'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.js - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/index.js'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui-standalone-preset.js - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/swagger-ui-standalone-preset.js'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT8" completed keep alive response.
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.js - 304 null null 4.0498ms
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT6" completed keep alive response.
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT7" completed keep alive response.
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.css - 304 null null 47.1534ms
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MT9" completed keep alive response.
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui-standalone-preset.js - 304 null null 40.0946ms
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui.css - 304 null null 45.7196ms
+2026-02-20 20:20:52 [DBG] Connection id "0HNJFVVP08MTA" completed keep alive response.
+2026-02-20 20:20:52 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui-bundle.js - 304 null null 53.2416ms
+2026-02-20 20:20:52 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger/v1/swagger.json - null null
+2026-02-20 20:20:52 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-02-20 20:20:52 [DBG] Request did not match any endpoints
+2026-02-20 20:20:52 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:20:52 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-02-20 20:20:52 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-02-20 20:20:53 [DBG] Connection id "0HNJFVVP08MTA" completed keep alive response.
+2026-02-20 20:20:53 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 613.9175ms
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT8" received FIN.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT9" received FIN.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT7" received FIN.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT6" received FIN.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT7" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MTA" received FIN.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT8" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT6" disconnecting.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT6" stopped.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT8" disconnecting.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT7" disconnecting.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT9" disconnecting.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT7" stopped.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MTA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT9" stopped.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MTA" disconnecting.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT6" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MTA" stopped.
+2026-02-20 20:20:59 [DBG] Connection id "0HNJFVVP08MT8" stopped.
+2026-02-20 20:21:10 [DBG] Connection id "0HNJFVVP08MTB" accepted.
+2026-02-20 20:21:10 [DBG] Connection id "0HNJFVVP08MTB" started.
+2026-02-20 20:21:10 [INF] Request starting HTTP/1.1 POST http://localhost:5171/auth/login - application/json 47
+2026-02-20 20:21:10 [DBG] 1 candidate(s) found for the request path '/auth/login'
+2026-02-20 20:21:10 [DBG] Endpoint 'AuthController.Login (server)' with route pattern 'auth/login' is valid for the request path '/auth/login'
+2026-02-20 20:21:10 [DBG] Request matched endpoint 'AuthController.Login (server)'
+2026-02-20 20:21:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:21:10 [INF] Executing endpoint 'AuthController.Login (server)'
+2026-02-20 20:21:10 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LoginUserDto) on controller AuthController (server).
+2026-02-20 20:21:10 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-02-20 20:21:10 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-02-20 20:21:10 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-02-20 20:21:10 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-02-20 20:21:10 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-02-20 20:21:10 [DBG] Executing controller factory for controller AuthController (server)
+2026-02-20 20:21:10 [DBG] Executed controller factory for controller AuthController (server)
+2026-02-20 20:21:10 [DBG] Attempting to bind parameter 'loginUserDto' of type 'LoginUserDto' ...
+2026-02-20 20:21:10 [DBG] Attempting to bind parameter 'loginUserDto' of type 'LoginUserDto' using the name '' in request data ...
+2026-02-20 20:21:10 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-02-20 20:21:10 [DBG] Connection id "0HNJFVVP08MTB", Request id "0HNJFVVP08MTB:00000001": started reading request body.
+2026-02-20 20:21:10 [DBG] Connection id "0HNJFVVP08MTB", Request id "0HNJFVVP08MTB:00000001": done reading request body.
+2026-02-20 20:21:10 [DBG] JSON input formatter succeeded, deserializing to type 'LoginUserDto'
+2026-02-20 20:21:10 [DBG] Done attempting to bind parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-02-20 20:21:10 [DBG] Done attempting to bind parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-02-20 20:21:10 [DBG] Attempting to validate the bound parameter 'loginUserDto' of type 'LoginUserDto' ...
+2026-02-20 20:21:10 [DBG] Done attempting to validate the bound parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-02-20 20:21:10 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-02-20 20:21:10 [DBG] Creating DbConnection.
+2026-02-20 20:21:10 [DBG] Created DbConnection. (2ms).
+2026-02-20 20:21:10 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:21:10 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:21:10 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:21:10 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2026-02-20 20:21:10 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2026-02-20 20:21:10 [DBG] Executing DbCommand [Parameters=[@loginUserDto_Email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Email" = @loginUserDto_Email
+LIMIT 1
+2026-02-20 20:21:11 [INF] Executed DbCommand (70ms) [Parameters=[@loginUserDto_Email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Email" = @loginUserDto_Email
+LIMIT 1
+2026-02-20 20:21:11 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:21:11 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:21:11 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 6ms reading results.
+2026-02-20 20:21:11 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:21:11 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:21:11 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-02-20 20:21:11 [DBG] No information found on request to perform content negotiation.
+2026-02-20 20:21:11 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-02-20 20:21:11 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-02-20 20:21:11 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-02-20 20:21:11 [INF] Executing OkObjectResult, writing value of type 'ServiceResponse`1[[LoginUserInfoDto, server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 20:21:11 [INF] Executed action AuthController.Login (server) in 616.1257ms
+2026-02-20 20:21:11 [INF] Executed endpoint 'AuthController.Login (server)'
+2026-02-20 20:21:11 [DBG] Connection id "0HNJFVVP08MTB" completed keep alive response.
+2026-02-20 20:21:11 [DBG] 'AppDbContext' disposed.
+2026-02-20 20:21:11 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:21:11 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:21:11 [INF] Request finished HTTP/1.1 POST http://localhost:5171/auth/login - 200 null application/json; charset=utf-8 636.0921ms
+2026-02-20 20:21:19 [DBG] Connection id "0HNJFVVP08MTB" received FIN.
+2026-02-20 20:21:19 [DBG] Connection id "0HNJFVVP08MTB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:21:19 [DBG] Connection id "0HNJFVVP08MTB" disconnecting.
+2026-02-20 20:21:19 [DBG] Connection id "0HNJFVVP08MTB" stopped.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTC" accepted.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTC" started.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTD" accepted.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTD" started.
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.html - null null
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/index.html'
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTC" completed keep alive response.
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.html - 304 null null 69.6996ms
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui.css - null null
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.css - null null
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTE" accepted.
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/index.css'
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/swagger-ui.css'
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTF" accepted.
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTG" accepted.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTF" started.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTG" started.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTE" started.
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui-standalone-preset.js - null null
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/index.js - null null
+2026-02-20 20:25:10 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger-ui-bundle.js - null null
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/swagger-ui-standalone-preset.js'
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/index.js'
+2026-02-20 20:25:10 [DBG] No candidates found for the request path '/swagger-ui-bundle.js'
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] Request did not match any endpoints
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTG" completed keep alive response.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTD" completed keep alive response.
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTF" completed keep alive response.
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui-standalone-preset.js - 304 null null 2.4894ms
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTE" completed keep alive response.
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.js - 304 null null 2.3505ms
+2026-02-20 20:25:10 [DBG] Connection id "0HNJFVVP08MTC" completed keep alive response.
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui.css - 304 null null 7.3081ms
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/index.css - 304 null null 7.2132ms
+2026-02-20 20:25:10 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger-ui-bundle.js - 304 null null 2.5309ms
+2026-02-20 20:25:11 [INF] Request starting HTTP/1.1 GET http://localhost:5171/swagger/v1/swagger.json - null null
+2026-02-20 20:25:11 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-02-20 20:25:11 [DBG] Request did not match any endpoints
+2026-02-20 20:25:11 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:25:11 [DBG] Connection id "0HNJFVVP08MTG" completed keep alive response.
+2026-02-20 20:25:11 [INF] Request finished HTTP/1.1 GET http://localhost:5171/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 200.1297ms
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTD" received FIN.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTC" received FIN.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTF" received FIN.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTE" received FIN.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTG" received FIN.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTD" disconnecting.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTC" disconnecting.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTC" stopped.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTD" stopped.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTF" disconnecting.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTF" stopped.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTG" disconnecting.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTE" disconnecting.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTE" stopped.
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTD" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:25:55 [DBG] Connection id "0HNJFVVP08MTG" stopped.
+2026-02-20 20:38:56 [DBG] Connection id "0HNJFVVP08MTH" accepted.
+2026-02-20 20:38:56 [DBG] Connection id "0HNJFVVP08MTH" started.
+2026-02-20 20:38:56 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5171/auth/register - null null
+2026-02-20 20:38:56 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:38:56 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:38:56 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:38:56 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:38:56 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:38:56 [DBG] Connection id "0HNJFVVP08MTH" completed keep alive response.
+2026-02-20 20:38:56 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5171/auth/register - 405 0 null 76.6478ms
+2026-02-20 20:39:01 [DBG] Connection id "0HNJFVVP08MTH" received FIN.
+2026-02-20 20:39:01 [DBG] Connection id "0HNJFVVP08MTH" disconnecting.
+2026-02-20 20:39:01 [DBG] Connection id "0HNJFVVP08MTH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:39:01 [DBG] Connection id "0HNJFVVP08MTH" stopped.
+2026-02-20 20:41:27 [INF] Application is shutting down...
+2026-02-20 20:41:27 [DBG] Hosting stopping
+2026-02-20 20:41:27 [DBG] Hosting stopped
+2026-02-20 20:44:59 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2026-02-20 20:44:59 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-02-20 20:45:00 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-02-20 20:45:00 [DBG] Creating DbConnection.
+2026-02-20 20:45:00 [DBG] Created DbConnection. (43ms).
+2026-02-20 20:45:00 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2026-02-20 20:45:01 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2026-02-20 20:45:01 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (8ms).
+2026-02-20 20:45:01 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-20 20:45:01 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-20 20:45:01 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (3ms).
+2026-02-20 20:45:01 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Any()'
+2026-02-20 20:45:01 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<bool>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Users AS u)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Users AS u), 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        bool? value1;
+        value1 = dataReader.IsDBNull(0) ? default(bool?) : (bool?)dataReader.GetBoolean(0);
+        return (bool)value1;
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)
+    .Single()'
+2026-02-20 20:45:01 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:01 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-02-20 20:45:01 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-02-20 20:45:01 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 35ms reading results.
+2026-02-20 20:45:01 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:01 [DBG] Compiling query expression: 
+'DbSet<BaseQuestion>()
+    .Any()'
+2026-02-20 20:45:01 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<bool>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM BaseQuestions AS b)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM BaseQuestions AS b), 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        bool? value1;
+        value1 = dataReader.IsDBNull(0) ? default(bool?) : (bool?)dataReader.GetBoolean(0);
+        return (bool)value1;
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)
+    .Single()'
+2026-02-20 20:45:01 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:01 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "BaseQuestions" AS b)
+2026-02-20 20:45:01 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "BaseQuestions" AS b)
+2026-02-20 20:45:01 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 0ms reading results.
+2026-02-20 20:45:01 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:01 [DBG] Compiling query expression: 
+'DbSet<SpecialQuestion>()
+    .Any()'
+2026-02-20 20:45:01 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<bool>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM SpecialQuestions AS s)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM SpecialQuestions AS s), 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        bool? value1;
+        value1 = dataReader.IsDBNull(0) ? default(bool?) : (bool?)dataReader.GetBoolean(0);
+        return (bool)value1;
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)
+    .Single()'
+2026-02-20 20:45:01 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:01 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:01 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "SpecialQuestions" AS s)
+2026-02-20 20:45:01 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "SpecialQuestions" AS s)
+2026-02-20 20:45:01 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 0ms reading results.
+2026-02-20 20:45:01 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:01 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:01 [DBG] Hosting starting
+2026-02-20 20:45:01 [INF] User profile is available. Using 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-46594d51-fa29-47d9-8696-9d74d7ad25b6.xml'.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-7b8d78e9-685e-47ce-be61-0c19eeffd916.xml'.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-bc23e259-7142-4d32-b50f-ccc60939f25e.xml'.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-d24c57fa-8226-4592-9d75-2781e6124610.xml'.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-ee43c5b7-481b-4e24-b862-380fe5a2ea19.xml'.
+2026-02-20 20:45:01 [DBG] Reading data from file 'C:\Users\MIchał\AppData\Local\ASP.NET\DataProtection-Keys\key-f728224b-a13a-4e1e-8e6a-3fdd74b35783.xml'.
+2026-02-20 20:45:01 [DBG] Found key {46594d51-fa29-47d9-8696-9d74d7ad25b6}.
+2026-02-20 20:45:01 [DBG] Found key {7b8d78e9-685e-47ce-be61-0c19eeffd916}.
+2026-02-20 20:45:01 [DBG] Found key {bc23e259-7142-4d32-b50f-ccc60939f25e}.
+2026-02-20 20:45:01 [DBG] Found key {d24c57fa-8226-4592-9d75-2781e6124610}.
+2026-02-20 20:45:01 [DBG] Found key {ee43c5b7-481b-4e24-b862-380fe5a2ea19}.
+2026-02-20 20:45:01 [DBG] Found key {f728224b-a13a-4e1e-8e6a-3fdd74b35783}.
+2026-02-20 20:45:01 [DBG] Considering key {ee43c5b7-481b-4e24-b862-380fe5a2ea19} with expiration date 2026-05-17 19:21:43Z as default key.
+2026-02-20 20:45:01 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-02-20 20:45:01 [DBG] Decrypting secret element using Windows DPAPI.
+2026-02-20 20:45:01 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-02-20 20:45:01 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2026-02-20 20:45:01 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2026-02-20 20:45:01 [DBG] Using key {ee43c5b7-481b-4e24-b862-380fe5a2ea19} as the default key.
+2026-02-20 20:45:01 [DBG] Key ring with default key {ee43c5b7-481b-4e24-b862-380fe5a2ea19} was loaded during application startup.
+2026-02-20 20:45:01 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2026-02-20 20:45:01 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-02-20 20:45:01 [INF] Now listening on: http://localhost:5171
+2026-02-20 20:45:01 [DBG] Loaded hosting startup assembly server
+2026-02-20 20:45:01 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 20:45:01 [INF] Hosting environment: Development
+2026-02-20 20:45:01 [INF] Content root path: D:\JSy\quizKWC\server
+2026-02-20 20:45:01 [DBG] Hosting started
+2026-02-20 20:45:28 [DBG] Connection id "0HNJGN2CKO5GH" accepted.
+2026-02-20 20:45:28 [DBG] Connection id "0HNJGN2CKO5GH" started.
+2026-02-20 20:45:28 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5171/auth/register - null null
+2026-02-20 20:45:28 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:45:28 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:45:32 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:45:32 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:45:32 [INF] CORS policy execution successful.
+2026-02-20 20:45:32 [DBG] The request is a preflight request.
+2026-02-20 20:45:32 [DBG] Connection id "0HNJGN2CKO5GH" completed keep alive response.
+2026-02-20 20:45:32 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5171/auth/register - 204 null null 4099.4383ms
+2026-02-20 20:45:32 [INF] Request starting HTTP/1.1 POST http://localhost:5171/auth/register - application/json 93
+2026-02-20 20:45:32 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:45:32 [DBG] Endpoint 'AuthController.Register (server)' with route pattern 'auth/register' is valid for the request path '/auth/register'
+2026-02-20 20:45:32 [DBG] Request matched endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:32 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:45:32 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:45:32 [INF] CORS policy execution successful.
+2026-02-20 20:45:32 [WRN] Failed to determine the https port for redirect.
+2026-02-20 20:45:32 [INF] Executing endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:32 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserDto) on controller AuthController (server).
+2026-02-20 20:45:32 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-02-20 20:45:32 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-02-20 20:45:32 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-02-20 20:45:32 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-02-20 20:45:32 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-02-20 20:45:32 [DBG] Executing controller factory for controller AuthController (server)
+2026-02-20 20:45:32 [DBG] Executed controller factory for controller AuthController (server)
+2026-02-20 20:45:32 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:45:32 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' using the name '' in request data ...
+2026-02-20 20:45:32 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-02-20 20:45:32 [DBG] Connection id "0HNJGN2CKO5GH", Request id "0HNJGN2CKO5GH:00000002": started reading request body.
+2026-02-20 20:45:32 [DBG] Connection id "0HNJGN2CKO5GH", Request id "0HNJGN2CKO5GH:00000002": done reading request body.
+2026-02-20 20:45:32 [DBG] JSON input formatter succeeded, deserializing to type 'RegisterUserDto'
+2026-02-20 20:45:32 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:32 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:32 [DBG] Attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:45:32 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-02-20 20:45:32 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Any(u => u.Email == @value)'
+2026-02-20 20:45:32 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<bool>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Users AS u
+            WHERE u.Email == @value)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Users AS u
+            WHERE u.Email == @value), 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        bool? value1;
+        value1 = dataReader.IsDBNull(0) ? default(bool?) : (bool?)dataReader.GetBoolean(0);
+        return (bool)value1;
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)
+    .Single()'
+2026-02-20 20:45:32 [DBG] Creating DbConnection.
+2026-02-20 20:45:32 [DBG] Created DbConnection. (0ms).
+2026-02-20 20:45:32 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:32 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:32 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:32 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:32 [DBG] Initialized DbCommand for 'ExecuteReader' (5ms).
+2026-02-20 20:45:32 [DBG] Executing DbCommand [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:45:32 [INF] Executed DbCommand (41ms) [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:45:32 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:32 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 0ms reading results.
+2026-02-20 20:45:32 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:32 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:32 [DBG] Done attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:33 [DBG] 'AppDbContext' generated a temporary value for the property 'User.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:45:33 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:45:33 [DBG] SaveChanges starting for 'AppDbContext'.
+2026-02-20 20:45:33 [DBG] DetectChanges starting for 'AppDbContext'.
+2026-02-20 20:45:33 [DBG] DetectChanges completed for 'AppDbContext'.
+2026-02-20 20:45:33 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:33 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:33 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:33 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:33 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2026-02-20 20:45:33 [DBG] Executing DbCommand [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?' (DbType = Object), @p4='?' (DbType = Object), @p5='?' (DbType = Object), @p6='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Name", "PasswordHash", "TaggedBaseIds", "TaggedSpecialIds", "WrongBaseIds", "WrongSpecialIds")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "Id";
+2026-02-20 20:45:33 [INF] Executed DbCommand (205ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?' (DbType = Object), @p4='?' (DbType = Object), @p5='?' (DbType = Object), @p6='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Name", "PasswordHash", "TaggedBaseIds", "TaggedSpecialIds", "WrongBaseIds", "WrongSpecialIds")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "Id";
+2026-02-20 20:45:33 [DBG] The foreign key property 'User.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2026-02-20 20:45:33 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:33 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 49ms reading results.
+2026-02-20 20:45:33 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:33 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (1ms).
+2026-02-20 20:45:33 [DBG] An entity of type 'User' tracked by 'AppDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:45:33 [DBG] SaveChanges completed for 'AppDbContext' with 1 entities written to the database.
+2026-02-20 20:45:33 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-02-20 20:45:34 [DBG] No information found on request to perform content negotiation.
+2026-02-20 20:45:34 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-02-20 20:45:34 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-02-20 20:45:34 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-02-20 20:45:34 [INF] Executing OkObjectResult, writing value of type 'ServiceResponse`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-20 20:45:34 [INF] Executed action AuthController.Register (server) in 1539.1589ms
+2026-02-20 20:45:34 [INF] Executed endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:34 [DBG] Connection id "0HNJGN2CKO5GH" completed keep alive response.
+2026-02-20 20:45:34 [DBG] 'AppDbContext' disposed.
+2026-02-20 20:45:34 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:34 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (3ms).
+2026-02-20 20:45:34 [INF] Request finished HTTP/1.1 POST http://localhost:5171/auth/register - 200 null application/json; charset=utf-8 1701.3489ms
+2026-02-20 20:45:37 [DBG] Connection id "0HNJGN2CKO5GH" received FIN.
+2026-02-20 20:45:37 [DBG] Connection id "0HNJGN2CKO5GH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:45:37 [DBG] Connection id "0HNJGN2CKO5GH" disconnecting.
+2026-02-20 20:45:37 [DBG] Connection id "0HNJGN2CKO5GH" stopped.
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI" accepted.
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI" started.
+2026-02-20 20:45:40 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5171/auth/register - null null
+2026-02-20 20:45:40 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:45:40 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:45:40 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:45:40 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:45:40 [INF] CORS policy execution successful.
+2026-02-20 20:45:40 [DBG] The request is a preflight request.
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI" completed keep alive response.
+2026-02-20 20:45:40 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5171/auth/register - 204 null null 10.581ms
+2026-02-20 20:45:40 [INF] Request starting HTTP/1.1 POST http://localhost:5171/auth/register - application/json 93
+2026-02-20 20:45:40 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:45:40 [DBG] Endpoint 'AuthController.Register (server)' with route pattern 'auth/register' is valid for the request path '/auth/register'
+2026-02-20 20:45:40 [DBG] Request matched endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:40 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:45:40 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:45:40 [INF] CORS policy execution successful.
+2026-02-20 20:45:40 [INF] Executing endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:40 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserDto) on controller AuthController (server).
+2026-02-20 20:45:40 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-02-20 20:45:40 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-02-20 20:45:40 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-02-20 20:45:40 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-02-20 20:45:40 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-02-20 20:45:40 [DBG] Executing controller factory for controller AuthController (server)
+2026-02-20 20:45:40 [DBG] Executed controller factory for controller AuthController (server)
+2026-02-20 20:45:40 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:45:40 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' using the name '' in request data ...
+2026-02-20 20:45:40 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI", Request id "0HNJGN2CKO5GI:00000002": started reading request body.
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI", Request id "0HNJGN2CKO5GI:00000002": done reading request body.
+2026-02-20 20:45:40 [DBG] JSON input formatter succeeded, deserializing to type 'RegisterUserDto'
+2026-02-20 20:45:40 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:40 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:40 [DBG] Attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:45:40 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-02-20 20:45:40 [DBG] Creating DbConnection.
+2026-02-20 20:45:40 [DBG] Created DbConnection. (0ms).
+2026-02-20 20:45:40 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:40 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:40 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:45:40 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:40 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:45:40 [DBG] Executing DbCommand [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:45:40 [INF] Executed DbCommand (3ms) [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:45:40 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:40 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 0ms reading results.
+2026-02-20 20:45:40 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:40 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:40 [DBG] Done attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:45:40 [DBG] The request has model state errors, returning an error response.
+2026-02-20 20:45:40 [DBG] Request was short circuited at action filter 'Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter'.
+2026-02-20 20:45:40 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-02-20 20:45:40 [DBG] No information found on request to perform content negotiation.
+2026-02-20 20:45:40 [DBG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json","application/problem+xml","application/problem+json","application/problem+xml"]'.
+2026-02-20 20:45:40 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/problem+json' to write the response.
+2026-02-20 20:45:40 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-20 20:45:40 [INF] Executed action AuthController.Register (server) in 344.5827ms
+2026-02-20 20:45:40 [INF] Executed endpoint 'AuthController.Register (server)'
+2026-02-20 20:45:40 [DBG] Connection id "0HNJGN2CKO5GI" completed keep alive response.
+2026-02-20 20:45:40 [DBG] 'AppDbContext' disposed.
+2026-02-20 20:45:40 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:45:40 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:45:40 [INF] Request finished HTTP/1.1 POST http://localhost:5171/auth/register - 400 null application/problem+json; charset=utf-8 350.1527ms
+2026-02-20 20:45:47 [DBG] Connection id "0HNJGN2CKO5GI" received FIN.
+2026-02-20 20:45:47 [DBG] Connection id "0HNJGN2CKO5GI" disconnecting.
+2026-02-20 20:45:47 [DBG] Connection id "0HNJGN2CKO5GI" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:45:47 [DBG] Connection id "0HNJGN2CKO5GI" stopped.
+2026-02-20 20:46:42 [DBG] Connection id "0HNJGN2CKO5GJ" accepted.
+2026-02-20 20:46:42 [DBG] Connection id "0HNJGN2CKO5GJ" started.
+2026-02-20 20:46:42 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5171/auth/register - null null
+2026-02-20 20:46:42 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:46:42 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-02-20 20:46:42 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:46:42 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:46:42 [INF] CORS policy execution successful.
+2026-02-20 20:46:42 [DBG] The request is a preflight request.
+2026-02-20 20:46:42 [DBG] Connection id "0HNJGN2CKO5GJ" completed keep alive response.
+2026-02-20 20:46:42 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5171/auth/register - 204 null null 3.4629ms
+2026-02-20 20:46:42 [INF] Request starting HTTP/1.1 POST http://localhost:5171/auth/register - application/json 91
+2026-02-20 20:46:42 [DBG] 1 candidate(s) found for the request path '/auth/register'
+2026-02-20 20:46:42 [DBG] Endpoint 'AuthController.Register (server)' with route pattern 'auth/register' is valid for the request path '/auth/register'
+2026-02-20 20:46:42 [DBG] Request matched endpoint 'AuthController.Register (server)'
+2026-02-20 20:46:42 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-02-20 20:46:42 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-02-20 20:46:42 [INF] CORS policy execution successful.
+2026-02-20 20:46:42 [INF] Executing endpoint 'AuthController.Register (server)'
+2026-02-20 20:46:42 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserDto) on controller AuthController (server).
+2026-02-20 20:46:42 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-02-20 20:46:42 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-02-20 20:46:42 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-02-20 20:46:42 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-02-20 20:46:42 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-02-20 20:46:42 [DBG] Executing controller factory for controller AuthController (server)
+2026-02-20 20:46:42 [DBG] Executed controller factory for controller AuthController (server)
+2026-02-20 20:46:42 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:46:42 [DBG] Attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto' using the name '' in request data ...
+2026-02-20 20:46:42 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-02-20 20:46:42 [DBG] Connection id "0HNJGN2CKO5GJ", Request id "0HNJGN2CKO5GJ:00000002": started reading request body.
+2026-02-20 20:46:42 [DBG] Connection id "0HNJGN2CKO5GJ", Request id "0HNJGN2CKO5GJ:00000002": done reading request body.
+2026-02-20 20:46:42 [DBG] JSON input formatter succeeded, deserializing to type 'RegisterUserDto'
+2026-02-20 20:46:42 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:46:42 [DBG] Done attempting to bind parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:46:42 [DBG] Attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto' ...
+2026-02-20 20:46:42 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-02-20 20:46:42 [DBG] Creating DbConnection.
+2026-02-20 20:46:42 [DBG] Created DbConnection. (0ms).
+2026-02-20 20:46:42 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:42 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:42 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:46:42 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:46:42 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:46:42 [DBG] Executing DbCommand [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:46:42 [INF] Executed DbCommand (9ms) [Parameters=[@value='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @value)
+2026-02-20 20:46:42 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:42 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 0ms reading results.
+2026-02-20 20:46:42 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:42 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:46:42 [DBG] Done attempting to validate the bound parameter 'registerUserDto' of type 'RegisterUserDto'.
+2026-02-20 20:46:43 [DBG] 'AppDbContext' generated a temporary value for the property 'User.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:46:43 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:46:43 [DBG] SaveChanges starting for 'AppDbContext'.
+2026-02-20 20:46:43 [DBG] DetectChanges starting for 'AppDbContext'.
+2026-02-20 20:46:43 [DBG] DetectChanges completed for 'AppDbContext'.
+2026-02-20 20:46:43 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:43 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:43 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-02-20 20:46:43 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:46:43 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-02-20 20:46:43 [DBG] Executing DbCommand [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?' (DbType = Object), @p4='?' (DbType = Object), @p5='?' (DbType = Object), @p6='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Name", "PasswordHash", "TaggedBaseIds", "TaggedSpecialIds", "WrongBaseIds", "WrongSpecialIds")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "Id";
+2026-02-20 20:46:43 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?' (DbType = Object), @p4='?' (DbType = Object), @p5='?' (DbType = Object), @p6='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Name", "PasswordHash", "TaggedBaseIds", "TaggedSpecialIds", "WrongBaseIds", "WrongSpecialIds")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "Id";
+2026-02-20 20:46:43 [DBG] The foreign key property 'User.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2026-02-20 20:46:43 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:43 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 1ms reading results.
+2026-02-20 20:46:43 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:43 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:46:43 [DBG] An entity of type 'User' tracked by 'AppDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-02-20 20:46:43 [DBG] SaveChanges completed for 'AppDbContext' with 1 entities written to the database.
+2026-02-20 20:46:43 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-02-20 20:46:43 [DBG] No information found on request to perform content negotiation.
+2026-02-20 20:46:43 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-02-20 20:46:43 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-02-20 20:46:43 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-02-20 20:46:43 [INF] Executing OkObjectResult, writing value of type 'ServiceResponse`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-20 20:46:43 [INF] Executed action AuthController.Register (server) in 350.9523ms
+2026-02-20 20:46:43 [INF] Executed endpoint 'AuthController.Register (server)'
+2026-02-20 20:46:43 [DBG] Connection id "0HNJGN2CKO5GJ" completed keep alive response.
+2026-02-20 20:46:43 [DBG] 'AppDbContext' disposed.
+2026-02-20 20:46:43 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-02-20 20:46:43 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-02-20 20:46:43 [INF] Request finished HTTP/1.1 POST http://localhost:5171/auth/register - 200 null application/json; charset=utf-8 362.0709ms
+2026-02-20 20:47:27 [DBG] Connection id "0HNJGN2CKO5GJ" received FIN.
+2026-02-20 20:47:27 [DBG] Connection id "0HNJGN2CKO5GJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-02-20 20:47:27 [DBG] Connection id "0HNJGN2CKO5GJ" disconnecting.
+2026-02-20 20:47:27 [DBG] Connection id "0HNJGN2CKO5GJ" stopped.

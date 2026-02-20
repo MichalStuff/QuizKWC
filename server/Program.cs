@@ -94,12 +94,24 @@ builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsi
 builder.Services.AddScoped<IValidator<RegisterUserDto>,RegisterUserDtoValidator>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Adres frontendowej aplikacji
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    }); 
+});
+
 
 var app = builder.Build();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors("AllowFrontend");
 
 //Seeder
 var scope = app.Services.CreateScope();
