@@ -62,10 +62,20 @@ public class AppSeeder
 
         foreach(var question in baseQuestions)
         {
+
+            string? imagePath = null;
+
+            if(question.Image != null)
+            {
+                var filename = $"{question.Id}.jpg";
+                imagePath = $"Resources/images/base/{filename}";
+            }
+
+
             var q = new BaseQuestion
             {
                 Content = question.Content,
-                Image = question.Image,
+                Image = imagePath,
                 CorrectAnswerId = question.CorrectAnswerId,
                 Answers = question.Answers.Select(a => new BaseAnswer
                 {
@@ -89,11 +99,17 @@ public class AppSeeder
 
         foreach(var question in specialQuestions)
         {
-            Console.WriteLine(question.CorrectAnswerId);
+            string? imagePath = null;
+
+            if(question.Image != null)
+            {
+                var filename = $"{question.Id}.jpg";
+                imagePath = $"Resources/images/special/{filename}";
+            }
             var q = new SpecialQuestion
             {
                 Content = question.Content,
-                Image = question.Image,
+                Image = imagePath,
                 CorrectAnswerId = question.CorrectAnswerId,
                 Answers = question.Answers.Select(a => new SpecialAnswer
                 {

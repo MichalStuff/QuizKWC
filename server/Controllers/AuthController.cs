@@ -30,11 +30,21 @@ public class AuthController : ControllerBase
     {
         return Ok(await _authService.AddWrongBaseQuestionToUser(questionId));
     }
+    [HttpPost("addWrongBaseQuestions")]
+    public async Task<IActionResult> AddWrongBaseQuestionToUser([FromBody] List<int> questionsIds)
+    {
+        return Ok(await _authService.AddWrongBaseQuestionToUser(questionsIds));
+    }
 
     [HttpPost("addWrongSpecialQuestion/{questionId:int}")]
     public async Task<IActionResult> AddWrongSpecialQuestionToUser([FromRoute] int questionId)
     {
         return Ok(await _authService.AddWrongSpecialQuestionToUser(questionId));
+    }
+    [HttpPost("addWrongSpecialQuestions")]
+    public async Task<IActionResult> AddWrongSpecialQuestionToUser([FromBody] List<int> questionsIds)
+    {
+        return Ok(await _authService.AddWrongSpecialQuestionToUser(questionsIds));
     }
 
     [HttpPost("addTaggedBaseQuestion/{questionId:int}")]
@@ -53,10 +63,20 @@ public class AuthController : ControllerBase
     {
         return Ok(await _authService.RemoveWrongBaseQuestionFromUser(questionId));
     }
+    [HttpDelete("removeWrongBaseQuestions")]
+    public async Task<IActionResult> RemoveWrongBaseQuestionFromUser([FromBody] List<int> questionsIds)
+    {
+        return Ok(await _authService.RemoveWrongBaseQuestionFromUser(questionsIds));
+    }
     [HttpDelete("removeWrongSpecialQuestion/{questionId:int}")]
     public async Task<IActionResult> RemoveWrongSpecialQuestionFromUser([FromRoute] int questionId)
     {
         return Ok(await _authService.RemoveWrongSpecialQuestionFromUser(questionId));
+    }
+    [HttpDelete("removeWrongSpecialQuestions")]
+    public async Task<IActionResult> RemoveWrongSpecialQuestionFromUser([FromBody] List<int> questionsIds)
+    {
+        return Ok(await _authService.RemoveWrongSpecialQuestionFromUser(questionsIds));
     }
     [HttpGet("getUserInfo")]
     public async Task<IActionResult> GetUserInfo()

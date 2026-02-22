@@ -89,6 +89,29 @@ public class AuthService : IAuthService
         return new ServiceResponse<string>("Question added");
     }
 
+    public async Task<ServiceResponse<string>> AddWrongBaseQuestionToUser(List<int> questionIdList)
+    {
+        var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
+        if(user == null)
+        {
+            return new ServiceResponse<string>("User not found"){Success = false};
+        }
+
+        var questions = await _dbcontext.BaseQuestions.Where(q => questionIdList.Contains(q.Id)).ToListAsync();
+        foreach (var question in questions)
+        {
+            if (!user.WrongBaseIds.Any(q => q == question.Id))
+            {
+                user.WrongBaseIds.Add(question.Id);
+            }
+        }
+
+        await _dbcontext.SaveChangesAsync();
+
+        return new ServiceResponse<string>("Wrong questions added successfully"){Success = true};
+
+    } 
+
     public async Task<ServiceResponse<string>> AddWrongSpecialQuestionToUser(int questionId)
     {
         var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
@@ -111,6 +134,29 @@ public class AuthService : IAuthService
         return new ServiceResponse<string>("Question added");
     }
 
+       public async Task<ServiceResponse<string>> AddWrongSpecialQuestionToUser(List<int> questionIdList)
+    {
+        var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
+        if(user == null)
+        {
+            return new ServiceResponse<string>("User not found"){Success = false};
+        }
+
+        var questions = await _dbcontext.SpecialQuestions.Where(q => questionIdList.Contains(q.Id)).ToListAsync();
+        foreach (var question in questions)
+        {
+            if (!user.WrongSpecialIds.Any(q => q == question.Id))
+            {
+                user.WrongSpecialIds.Add(question.Id);
+            }
+        }
+
+        await _dbcontext.SaveChangesAsync();
+
+        return new ServiceResponse<string>("Wrong questions added successfully"){Success = true};
+
+    }
+
     public async Task<ServiceResponse<string>> RemoveWrongSpecialQuestionFromUser(int questionId)
     {
         var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
@@ -125,6 +171,25 @@ public class AuthService : IAuthService
         user.WrongSpecialIds.Remove(questionId);
         await _dbcontext.SaveChangesAsync();
         return new ServiceResponse<string>("Question removed"){Success = true};
+    }
+    public async Task<ServiceResponse<string>> RemoveWrongSpecialQuestionFromUser(List<int> questionIdList)
+    {
+        var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
+        if (user == null)
+        {
+            return new ServiceResponse<string>("User not found") { Success = false };
+        }
+        var questions = await _dbcontext.SpecialQuestions.Where(q => questionIdList.Contains(q.Id)).ToListAsync();
+        foreach (var question in questions)
+        {
+            if (user.WrongSpecialIds.Any(q => q == question.Id))
+            {
+                user.WrongSpecialIds.Remove(question.Id);
+            }
+        }
+        await _dbcontext.SaveChangesAsync();
+        return new ServiceResponse<string>("Questions removed"){Success = true};
+
     }
 
 
@@ -142,6 +207,26 @@ public class AuthService : IAuthService
         user.WrongBaseIds.Remove(questionId);
         await _dbcontext.SaveChangesAsync();
         return new ServiceResponse<string>("Question removed"){Success = true};
+    }
+
+        public async Task<ServiceResponse<string>> RemoveWrongBaseQuestionFromUser(List<int> questionIdList)
+    {
+        var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Id == _userContextService.GetUserId);
+        if (user == null)
+        {
+            return new ServiceResponse<string>("User not found") { Success = false };
+        }
+        var questions = await _dbcontext.BaseQuestions.Where(q => questionIdList.Contains(q.Id)).ToListAsync();
+        foreach (var question in questions)
+        {
+            if (user.WrongBaseIds.Any(q => q == question.Id))
+            {
+                user.WrongSpecialIds.Remove(question.Id);
+            }
+        }
+        await _dbcontext.SaveChangesAsync();
+        return new ServiceResponse<string>("Questions removed"){Success = true};
+
     }
 
     public async Task<ServiceResponse<string>> AddTaggedBaseQuestionToUser(int questionId)

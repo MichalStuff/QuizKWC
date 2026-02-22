@@ -25,8 +25,12 @@ const Main = ({ isLoggedIn, handleLogout }: MainProps) => {
           Zarejesturj się
         </Link>
       ) : null}
-      <Button text="Tryb Nauki" />
-      <Button text="Tryb Testu" />
+      <Link to="/learn" className="button">
+        Tryb Nauki
+      </Link>
+      <Link to="/test" className="button">
+        Tryb Testu
+      </Link>
     </div>
   );
 };

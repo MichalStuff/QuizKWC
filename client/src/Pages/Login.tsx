@@ -1,7 +1,7 @@
 import { FaLock, FaEnvelope } from "react-icons/fa";
 import Button from "../Compoents/Button";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type LoginUser = {
   email: string;
@@ -45,7 +45,7 @@ const Login = ({ setIsLoggedIn }: LoginProps) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     {
       e.preventDefault();
       if (baseVerification.email && baseVerification.password) {
@@ -58,13 +58,33 @@ const Login = ({ setIsLoggedIn }: LoginProps) => {
           }),
         };
         const apiUrl = import.meta.env.VITE_API_BASE_URL;
+        let userToken: string;
         fetch(`${apiUrl}/auth/login`, requestOptions).then((response) =>
-          response.json().then((data) => {
-            localStorage.setItem("token", data.data.token);
-            setIsLoggedIn(true);
-            console.log("Zalogowano pomyślnie");
-            navigate("/");
-          }),
+          response
+            .json()
+            .then((data) => {
+              localStorage.setItem("token", data.data.token);
+              userToken = data.data.token;
+              setIsLoggedIn(true);
+              console.log("Zalogowano pomyślnie");
+              navigate("/");
+            })
+            .finally(() => {
+              const userReqOptions: RequestInit = {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${userToken}`,
+                },
+              };
+              fetch(`${apiUrl}/auth/getUserInfo`, userReqOptions).then(
+                (response) =>
+                  response.json().then((data) => {
+                    localStorage.setItem("user", JSON.stringify(data.data));
+                    // navigate("/");
+                  }),
+              );
+            }),
         );
       }
     }
@@ -126,9 +146,9 @@ const Login = ({ setIsLoggedIn }: LoginProps) => {
               : "button--disabled"
           }
         />
-        <a href="" className="sign__goTo">
+        <Link to={"/register"} className="sign__goTo">
           Zarejestruj się
-        </a>
+        </Link>
       </form>
     </div>
   );

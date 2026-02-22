@@ -8,9 +8,16 @@ using Microsoft.AspNetCore.Identity;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Serilog;
+using Microsoft.Extensions.FileProviders;
+using System.Net;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 5171);
+});
 
 //Logs
 Log.Logger = new LoggerConfiguration()
@@ -102,16 +109,29 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
-    }); 
-});
+    });
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader(); 
+    });
+}); 
 
 
 var app = builder.Build();
 app.UseRouting();
 
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowFrontend");
+// app.UseCors("AllowFrontend");
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"Resources")),
+    RequestPath = new PathString("/Resources")
+});
 
 //Seeder
 var scope = app.Services.CreateScope();

@@ -1,59 +1,92 @@
-import Answer, { type AnswerProps } from "./Answer";
+import Answer, { type AnswerType } from "./Answer";
+import { FaFlag } from "react-icons/fa";
+
 import defaultImg from "../assets/question.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type QuestionProps = {
-  Id: number;
-  Content: string;
-  Image: string | null;
-  answers: AnswerProps[];
-  CorrectAnsId: number;
+  id: number;
+  image: string;
+  content: string;
+  correctAnswerId: number;
+  answers: AnswerType[];
   handleSelectAnswer: (id: number, answerId: number) => void;
   isFinished: boolean;
+  isLoggedIn: boolean;
+  tagged: boolean;
+  handleTag: (id: number) => void;
+};
+
+export type QuestionType = {
+  id: number;
+  image: string;
+  content: string;
+  correctAnswerId: number;
+  answers: AnswerType[];
 };
 
 const Question = ({
-  Id,
-  Content,
-  Image,
-  CorrectAnsId,
+  id,
+  content,
+  image,
+  correctAnswerId,
   answers,
   isFinished,
+  isLoggedIn,
+  tagged,
+  handleTag,
   handleSelectAnswer,
 }: QuestionProps) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  useEffect(() => {
-    console.log(isFinished);
-  }, [isFinished]);
-
-  const handleSelect = (answerId: number) => {
-    setSelectedId(answerId);
-    console.log(answerId);
-    handleSelectAnswer(Id, answerId);
+  const handleSelect = (answerIndex: number) => {
+    if (!isFinished) {
+      setSelectedId(answerIndex);
+      handleSelectAnswer(id, answerIndex);
+    }
   };
+
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   return (
     <div className="question">
-      <h3 className="question__text">{Content}</h3>
+      <h3
+        className={`question__text ${selectedId === correctAnswerId ? isFinished && "question__text--correct" : isFinished && "question__text--bad"}`}
+      >
+        {content}
+      </h3>
       <div className="question__image-wrapper">
-        {Image === null ? (
+        {image === null ? (
           <img className="question__image" src={defaultImg} alt="" />
         ) : (
-          <img className="question__image" src={Image} alt="Nie ma zdj" />
+          <img
+            className="question__image"
+            src={`${baseUrl}/${image}`}
+            alt="Nie ma zdj"
+          />
         )}
       </div>
-      <div className="question__answers"></div>
-      {answers.map((answer) => (
-        <Answer
-          key={answer.Id}
-          {...answer}
-          onSlected={handleSelect}
-          isSelected={selectedId === answer.Id}
-          isCorrect={answer.Id === CorrectAnsId && isFinished}
-          isBad={selectedId !== CorrectAnsId && isFinished}
+      {isLoggedIn && (
+        <FaFlag
+          className={`question__tag ${tagged ? "question__tag--tagged" : ""}`}
+          onClick={() => {
+            handleTag(id);
+          }}
         />
-      ))}
+      )}
+      <div className="question__answers">
+        {answers.map((answer: AnswerType) => (
+          <Answer
+            key={answer.id}
+            {...answer}
+            onSlected={handleSelect}
+            isFinished={isFinished}
+            isSelected={selectedId === answer.answerIndex}
+            isCorrect={answer.answerIndex === correctAnswerId && isFinished}
+            isBad={selectedId !== correctAnswerId && isFinished}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { FaLock, FaEnvelope } from "react-icons/fa";
 import Button from "../Compoents/Button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type RegisterUser = {
   name?: string;
@@ -88,7 +89,7 @@ const Register = () => {
     return name.length >= 3;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (
       baseVerification.email &&
@@ -195,9 +196,9 @@ const Register = () => {
               : "button--disabled"
           }
         />
-        <a href="" className="sign__goTo">
+        <Link to={"/login"} className="sign__goTo">
           Zaloguj się
-        </a>
+        </Link>
       </form>
     </div>
   );
