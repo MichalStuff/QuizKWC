@@ -32,6 +32,7 @@ const App = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/test" element={<Test isLoggedIn={isLoggedIn} />} />
+        {/* <Route path="/loading" element={<Loading />} /> */}
       </Routes>
     </div>
   );

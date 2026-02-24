@@ -10,7 +10,8 @@ export type QuestionProps = {
   content: string;
   correctAnswerId: number;
   answers: AnswerType[];
-  handleSelectAnswer: (id: number, answerId: number) => void;
+  type: number;
+  handleSelectAnswer: (id: number, answerId: number, type: number) => void;
   isFinished: boolean;
   isLoggedIn: boolean;
   tagged: boolean;
@@ -23,6 +24,7 @@ export type QuestionType = {
   content: string;
   correctAnswerId: number;
   answers: AnswerType[];
+  type: number;
 };
 
 const Question = ({
@@ -34,6 +36,7 @@ const Question = ({
   isFinished,
   isLoggedIn,
   tagged,
+  type,
   handleTag,
   handleSelectAnswer,
 }: QuestionProps) => {
@@ -42,7 +45,7 @@ const Question = ({
   const handleSelect = (answerIndex: number) => {
     if (!isFinished) {
       setSelectedId(answerIndex);
-      handleSelectAnswer(id, answerIndex);
+      handleSelectAnswer(id, answerIndex, type);
     }
   };
 

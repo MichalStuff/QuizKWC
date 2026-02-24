@@ -1,4 +1,4 @@
-import { FaLock, FaEnvelope } from "react-icons/fa";
+import { FaLock, FaEnvelope, FaUser } from "react-icons/fa";
 import Button from "../Compoents/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -124,7 +124,7 @@ const Register = () => {
         <div
           className={`sign__input__wrapper sign__input__wrapper--${focus === "name" ? "outline" : ""}`}
         >
-          <FaEnvelope
+          <FaUser
             className={`sign__input__icon ${baseVerification.email ? "sign__input__icon--ok" : ""}`}
           />
           <input

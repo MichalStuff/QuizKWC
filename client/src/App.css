@@ -44,6 +44,14 @@ body {
   align-items: center;
 }
 
+.logo {
+  color: var(--minor-text-color);
+}
+
+.logo--big {
+  width: 60%;
+}
+
 .button {
   text-decoration: none;
   text-align: center;
@@ -68,6 +76,55 @@ body {
 .button--disabled {
   background-color: var(--secondary-color);
   color: var(--minor-text-color);
+}
+
+.loading {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading__wrapper {
+  position: relative;
+  width: 20%;
+}
+
+.loading__icon {
+  position: absolute;
+  color: white;
+}
+
+.loading__icon--top {
+  margin-top: -33%;
+  -webkit-animation: 1s infinite alternate loadingAnimation;
+  animation: 1s infinite alternate loadingAnimation;
+}
+.loading__icon--middle {
+  top: 0;
+  -webkit-animation: 1s infinite alternate loadingAnimation;
+  animation: 1s infinite alternate loadingAnimation 0.5s;
+}
+.loading__icon--bottom {
+  margin-top: 33%;
+  -webkit-animation: 1s infinite alternate loadingAnimation;
+  animation: 1s infinite alternate loadingAnimation 1s;
+}
+
+@-webkit-keyframes loadingAnimation {
+}
+
+@keyframes loadingAnimation {
+  0% {
+    transform: scale(1);
+  }
+  66% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
 }
 
 .sign {
@@ -153,6 +210,29 @@ body {
   overflow-y: auto;
 }
 
+.test__title {
+  color: var(--minor-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100dvh;
+  scroll-snap-align: center;
+  gap: 1rem;
+}
+
+.test__title__header {
+  color: var(--minor-text-color);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.test__title__text {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .test__end {
   width: 100%;
   height: 100dvb;
@@ -161,9 +241,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
 .test__score-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -174,12 +256,16 @@ body {
 
 .test__score {
   font-size: 2rem;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   font-weight: 700;
 }
 
+.test__part {
+  padding: 0.5rem;
+}
+
 .test__scrore-number {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 .test__button {
