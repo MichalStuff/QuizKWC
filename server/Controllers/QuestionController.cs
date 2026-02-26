@@ -40,6 +40,16 @@ public class QuestionController : ControllerBase
     {
         return await _questionService.GetTest();
     }
+    [HttpGet("baseQuantity")]
+    public async Task<ServiceResponse<int>> GetBaseQuestionsQuantity()
+    {
+        return await _questionService.GetBaseQuestionsQuantity();
+    }
+    [HttpGet("specialQuantity")]
+    public async Task<ServiceResponse<int>> GetSpecialQuestionsQuantity()
+    {
+        return await _questionService.GetSpecialQuestionsQuantity();
+    }
 
 
 }

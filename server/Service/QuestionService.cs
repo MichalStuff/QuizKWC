@@ -60,4 +60,16 @@ public class QuestionService : IQuestionService
         };
         return new ServiceResponse<TestDto>(testDto, true, "Test data retrieved");
     }
+
+    public async Task<ServiceResponse<int>> GetBaseQuestionsQuantity()
+    {
+        var quantity = await _dbContext.BaseQuestions.CountAsync();
+        return new ServiceResponse<int>(quantity, true, "Base Question Count");
+    }
+
+    public async Task<ServiceResponse<int>> GetSpecialQuestionsQuantity()
+    {
+        var quantity = await _dbContext.SpecialQuestions.CountAsync();
+        return new ServiceResponse<int>(quantity, true, "Special Question Count");
+    }
 }

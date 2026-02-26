@@ -13,7 +13,7 @@ export type AnswerProps = {
   content: string;
   answerIndex: number;
   onSlected: (id: number) => void;
-  isFinished: boolean;
+  isFinished?: boolean;
   isSelected: boolean;
   isCorrect: boolean;
   isBad: boolean;
@@ -24,7 +24,6 @@ const Answer = ({
   content,
   answerIndex,
   onSlected,
-  isFinished,
   isCorrect,
   isSelected,
   isBad,

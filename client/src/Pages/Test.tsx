@@ -7,9 +7,13 @@ import type { AnswerType } from "../Compoents/Answer";
 import { Link } from "react-router-dom";
 import Loading from "../Compoents/Loading";
 import TruckLogo from "../assets/truck.svg?react";
+import Error from "../Compoents/Error";
+import type { UserDataType } from "../App";
 
 export type TestProps = {
   isLoggedIn: boolean;
+  userData: UserDataType | null;
+  handleUserData: (data: UserDataType) => void;
 };
 
 type TestType = {
@@ -17,7 +21,7 @@ type TestType = {
   specialQuestions: QuestionProps[];
 };
 
-const Test = ({ isLoggedIn }: TestProps) => {
+const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
   const [isFinished, setIsFinished] = useState<{
     base: boolean;
     special: boolean;
@@ -47,15 +51,20 @@ const Test = ({ isLoggedIn }: TestProps) => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    const userString = localStorage.getItem("user");
-    const data = userString ? JSON.parse(userString) : null;
-    setTaggedQuestions(data.taggedBaseIds);
-    setTaggedQuestions({
-      base: data.taggedBaseIds,
-      special: data.taggedSpecialIds,
-    });
-    console.log(data);
-  }, []);
+    const data = userData;
+    if (data !== null) {
+      setTaggedQuestions({
+        base: data.taggedBaseIds,
+        special: data.taggedSpecialIds,
+      });
+    } else {
+      setTaggedQuestions({
+        base: [],
+        special: [],
+      });
+    }
+    console.log("OPA");
+  }, [userData]);
 
   useEffect(() => {
     const loadQuestions = async () => {
@@ -100,7 +109,7 @@ const Test = ({ isLoggedIn }: TestProps) => {
       }
     };
     loadQuestions();
-  }, []);
+  }, [apiUrl]);
 
   const handleSelectAnswer = (
     questionId: number,
@@ -184,41 +193,57 @@ const Test = ({ isLoggedIn }: TestProps) => {
   };
 
   const handleBaseTag = (id: number) => {
-    const reqOptions: RequestInit = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    };
-    fetch(`${apiUrl}/auth/addTaggedBaseQuestion/${id}`, reqOptions);
-    if (taggedQuestions.base.includes(id)) {
-      const temp = taggedQuestions.base.filter((item) => item !== id);
-      setTaggedQuestions((prev) => ({ base: temp, special: prev.special }));
-    } else {
-      setTaggedQuestions((prev) => ({
-        base: [...prev.base, id],
-        special: prev.special,
-      }));
+    if (userData !== null) {
+      const reqOptions: RequestInit = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      fetch(`${apiUrl}/auth/addTaggedBaseQuestion/${id}`, reqOptions);
+      if (taggedQuestions.base.includes(id)) {
+        const temp = taggedQuestions.base.filter((item) => item !== id);
+        // setTaggedQuestions((prev) => ({ base: temp, special: prev.special }));
+        const user = { ...userData, taggedBaseIds: temp };
+
+        handleUserData(user);
+      } else {
+        // setTaggedQuestions((prev) => ({
+        //   base: [...prev.base, id],
+        //   special: prev.special,
+        // }));
+        const temp = [...userData.taggedBaseIds, id];
+        const user = { ...userData, taggedBaseIds: temp };
+        handleUserData(user);
+      }
     }
   };
+
   const handleSpecialTag = (id: number) => {
-    const reqOptions: RequestInit = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    };
-    fetch(`${apiUrl}/auth/addTaggedSpecialQuestion/${id}`, reqOptions);
-    if (taggedQuestions.special.includes(id)) {
-      const temp = taggedQuestions.special.filter((item) => item !== id);
-      setTaggedQuestions((prev) => ({ base: prev.base, special: temp }));
-    } else {
-      setTaggedQuestions((prev) => ({
-        base: prev.base,
-        special: [...prev.special, id],
-      }));
+    if (userData !== null) {
+      const reqOptions: RequestInit = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      fetch(`${apiUrl}/auth/addTaggedSpecialQuestion/${id}`, reqOptions);
+      if (taggedQuestions.special.includes(id)) {
+        const temp = taggedQuestions.special.filter((item) => item !== id);
+        // setTaggedQuestions((prev) => ({ base: prev.base, special: temp }));
+        const user = { ...userData, taggedSpecialIds: temp };
+        handleUserData(user);
+      } else {
+        // setTaggedQuestions((prev) => ({
+        //   base: prev.base,
+        //   special: [...prev.special, id],
+        // }));
+        const temp = [...userData.taggedSpecialIds, id];
+        const user = { ...userData, taggedSpecialIds: temp };
+        handleUserData(user);
+      }
     }
   };
 
@@ -272,6 +297,8 @@ const Test = ({ isLoggedIn }: TestProps) => {
     );
   };
 
+  if (error) return <Error />;
+
   return (
     <div className="test">
       {loading ? (
@@ -286,15 +313,17 @@ const Test = ({ isLoggedIn }: TestProps) => {
             <p className="test__title__text">Część ogólna</p>
           </div>
           {questions.baseQuestions.map((q) => (
-            <Question
-              key={q.id}
-              {...q}
-              handleSelectAnswer={handleSelectAnswer}
-              isFinished={isFinished.base}
-              isLoggedIn={isLoggedIn}
-              tagged={taggedQuestions.base.includes(q.id)}
-              handleTag={handleBaseTag}
-            />
+            <div className="test__question-wrapper">
+              <Question
+                key={q.id}
+                {...q}
+                handleSelectAnswer={handleSelectAnswer}
+                isFinished={isFinished.base}
+                isLoggedIn={isLoggedIn}
+                tagged={taggedQuestions.base.includes(q.id)}
+                handleTag={handleBaseTag}
+              />
+            </div>
           ))}
           <div className="test__end">
             <TruckLogo className="logo logo--big" />
