@@ -13,5 +13,6 @@ public interface IAuthService
     public Task<ServiceResponse<string>> RemoveWrongSpecialQuestionFromUser(int questionId);
     public Task<ServiceResponse<string>> RemoveWrongSpecialQuestionFromUser(List<int> questionIdList);
     public Task<ServiceResponse<UserDto>> GetUserInfo(); 
-    
+    public Task<ServiceResponse<string>> UpdateBaseProgress(int baseProgress);
+    public Task<ServiceResponse<string>> UpdateSpecialProgress(int specialProgress);
 }

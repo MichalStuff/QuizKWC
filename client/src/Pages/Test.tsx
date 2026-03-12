@@ -26,13 +26,7 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
     base: boolean;
     special: boolean;
   }>({ base: false, special: false });
-  const [taggedQuestions, setTaggedQuestions] = useState<{
-    base: number[];
-    special: number[];
-  }>({
-    base: [],
-    special: [],
-  });
+
   const [score, setScore] = useState<{ base: number; special: number }>({
     base: 0,
     special: 0,
@@ -49,22 +43,6 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
   const [error, setError] = useState<boolean>(false);
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
-
-  useEffect(() => {
-    const data = userData;
-    if (data !== null) {
-      setTaggedQuestions({
-        base: data.taggedBaseIds,
-        special: data.taggedSpecialIds,
-      });
-    } else {
-      setTaggedQuestions({
-        base: [],
-        special: [],
-      });
-    }
-    console.log("OPA");
-  }, [userData]);
 
   useEffect(() => {
     const loadQuestions = async () => {
@@ -202,17 +180,12 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
         },
       };
       fetch(`${apiUrl}/auth/addTaggedBaseQuestion/${id}`, reqOptions);
-      if (taggedQuestions.base.includes(id)) {
-        const temp = taggedQuestions.base.filter((item) => item !== id);
-        // setTaggedQuestions((prev) => ({ base: temp, special: prev.special }));
+      if (userData.taggedBaseIds.includes(id)) {
+        const temp = userData.taggedBaseIds.filter((item) => item !== id);
         const user = { ...userData, taggedBaseIds: temp };
 
         handleUserData(user);
       } else {
-        // setTaggedQuestions((prev) => ({
-        //   base: [...prev.base, id],
-        //   special: prev.special,
-        // }));
         const temp = [...userData.taggedBaseIds, id];
         const user = { ...userData, taggedBaseIds: temp };
         handleUserData(user);
@@ -230,16 +203,11 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
         },
       };
       fetch(`${apiUrl}/auth/addTaggedSpecialQuestion/${id}`, reqOptions);
-      if (taggedQuestions.special.includes(id)) {
-        const temp = taggedQuestions.special.filter((item) => item !== id);
-        // setTaggedQuestions((prev) => ({ base: prev.base, special: temp }));
+      if (userData.taggedSpecialIds.includes(id)) {
+        const temp = userData.taggedSpecialIds.filter((item) => item !== id);
         const user = { ...userData, taggedSpecialIds: temp };
         handleUserData(user);
       } else {
-        // setTaggedQuestions((prev) => ({
-        //   base: prev.base,
-        //   special: [...prev.special, id],
-        // }));
         const temp = [...userData.taggedSpecialIds, id];
         const user = { ...userData, taggedSpecialIds: temp };
         handleUserData(user);
@@ -313,14 +281,14 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
             <p className="test__title__text">Część ogólna</p>
           </div>
           {questions.baseQuestions.map((q) => (
-            <div className="test__question-wrapper">
+            <div key={q.id} className="test__question-wrapper">
               <Question
                 key={q.id}
                 {...q}
                 handleSelectAnswer={handleSelectAnswer}
                 isFinished={isFinished.base}
                 isLoggedIn={isLoggedIn}
-                tagged={taggedQuestions.base.includes(q.id)}
+                tagged={userData?.taggedBaseIds.includes(q.id) || false}
                 handleTag={handleBaseTag}
               />
             </div>
@@ -356,15 +324,17 @@ const Test = ({ isLoggedIn, userData, handleUserData }: TestProps) => {
                 <p className="test__title__text">Część ogólna</p>
               </div>
               {questions.specialQuestions.map((q) => (
-                <Question
-                  key={q.id}
-                  {...q}
-                  handleSelectAnswer={handleSelectAnswer}
-                  isFinished={isFinished.special}
-                  isLoggedIn={isLoggedIn}
-                  tagged={taggedQuestions.special.includes(q.id)}
-                  handleTag={handleSpecialTag}
-                />
+                <div key={q.id} className="test__question-wrapper">
+                  <Question
+                    key={q.id}
+                    {...q}
+                    handleSelectAnswer={handleSelectAnswer}
+                    isFinished={isFinished.special}
+                    isLoggedIn={isLoggedIn}
+                    tagged={userData?.taggedSpecialIds.includes(q.id) || false}
+                    handleTag={handleSpecialTag}
+                  />
+                </div>
               ))}
               <div className="test__end">
                 {isFinished.special ? (

@@ -7,6 +7,10 @@ import Register from "./Pages/Register";
 import { Route, Routes } from "react-router-dom";
 import LearnMenu from "./Pages/LearnMenu";
 import LearnBasic from "./Pages/LearnBasic";
+import LearnSpecial from "./Pages/LearnSpecial";
+import UserQuestions from "./Pages/UserQuestions";
+import ProtectedRoute from "./Pages/ProtectedRoute";
+import UserQuestion from "./Pages/UserQuestion";
 
 export type UserDataType = {
   id: number;
@@ -52,7 +56,13 @@ const App = () => {
         />
         <Route
           path="/login"
-          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          element={
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+              // userData={userData}
+              handleUserData={handleUserData}
+            />
+          }
         />
         <Route path="/register" element={<Register />} />
         <Route
@@ -76,7 +86,68 @@ const App = () => {
             />
           }
         />
-        <Route path="/learn/basic" />
+        <Route
+          path="/learn/special"
+          element={
+            <LearnSpecial
+              isLoggedIn={isLoggedIn}
+              userData={userData}
+              handleUserData={handleUserData}
+            />
+          }
+        />
+        <Route
+          path="/user/questions"
+          element={
+            <ProtectedRoute user={userData}>
+              <UserQuestions />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/base/tagged"
+          element={
+            <ProtectedRoute user={userData}>
+              <UserQuestion
+                userData={userData}
+                handleUserData={handleUserData}
+              />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/base/wrong"
+          element={
+            <ProtectedRoute user={userData}>
+              <UserQuestion
+                userData={userData}
+                handleUserData={handleUserData}
+              />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/special/tagged"
+          element={
+            <ProtectedRoute user={userData}>
+              <UserQuestion
+                userData={userData}
+                handleUserData={handleUserData}
+              />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/special/wrong"
+          element={
+            <ProtectedRoute user={userData}>
+              <UserQuestion
+                userData={userData}
+                handleUserData={handleUserData}
+              />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

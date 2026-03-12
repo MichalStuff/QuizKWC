@@ -29,7 +29,7 @@ const Answer = ({
   isBad,
 }: AnswerProps) => {
   useEffect(() => {
-    console.log(isCorrect);
+    // console.log(isCorrect);
   }, [isCorrect]);
 
   return (

@@ -2,6 +2,7 @@ import { FaLock, FaEnvelope } from "react-icons/fa";
 import Button from "../Compoents/Button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import type { UserDataType } from "../App";
 
 type LoginUser = {
   email: string;
@@ -10,9 +11,10 @@ type LoginUser = {
 
 export type LoginProps = {
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  handleUserData: (user: UserDataType) => void;
 };
 
-const Login = ({ setIsLoggedIn }: LoginProps) => {
+const Login = ({ setIsLoggedIn, handleUserData }: LoginProps) => {
   const [focus, setfocus] = useState<"email" | "password" | null>(null);
   const [baseVerification, setBaseVerification] = useState({
     email: false,
@@ -81,6 +83,7 @@ const Login = ({ setIsLoggedIn }: LoginProps) => {
                 (response) =>
                   response.json().then((data) => {
                     localStorage.setItem("user", JSON.stringify(data.data));
+                    handleUserData(data.data);
                     // navigate("/");
                   }),
               );

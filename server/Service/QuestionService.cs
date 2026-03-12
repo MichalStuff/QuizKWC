@@ -36,9 +36,30 @@ public class QuestionService : IQuestionService
     public async Task<ServiceResponse<QuestionDto>> GetSpecialQuestionById(int id)
     {
         var specialQuestion = await _dbContext.SpecialQuestions.Include(q => q.Answers).FirstOrDefaultAsync(q => q.Id == id);
-        if(specialQuestion != null) throw new NotFoundException("Special question not found");
+        if(specialQuestion == null) throw new NotFoundException("Special question not found");
         var mappedQuestion = _mapper.Map<QuestionDto>(specialQuestion);
         return new ServiceResponse<QuestionDto>(mappedQuestion, true, "Special question retrieved");
+    }
+
+    public async Task<ServiceResponse<List<QuestionDto>>> GetBaseQuestionsById(List<int> ids)
+    {
+        var baseQuestions = await _dbContext.BaseQuestions.Where(q => ids.Contains(q.Id)).Include(q => q.Answers).ToListAsync();
+        if(baseQuestions == null)
+        {
+            return new ServiceResponse<List<QuestionDto>>("questions not found");
+        }
+        var mappedBaseQuestions = _mapper.Map<List<QuestionDto>>(baseQuestions);
+        return new ServiceResponse<List<QuestionDto>>(mappedBaseQuestions,true,"questions") { };
+    }
+    public async Task<ServiceResponse<List<QuestionDto>>> GetSpecialQuestionsById(List<int> ids)
+    {
+        var specialQuestions = await _dbContext.SpecialQuestions.Where(q => ids.Contains(q.Id)).Include(q => q.Answers).ToListAsync();
+        if(specialQuestions == null)
+        {
+            return new ServiceResponse<List<QuestionDto>>("questions not found");
+        }
+        var mappedSpecialQuestions = _mapper.Map<List<QuestionDto>>(specialQuestions);
+        return new ServiceResponse<List<QuestionDto>>(mappedSpecialQuestions,true,"questions") { };
     }
 
     public async Task<ServiceResponse<TestDto>> GetTest()

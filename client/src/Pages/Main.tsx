@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../Compoents/Button";
+import TruckLogo from "../assets/truck.svg?react";
 
 export type MainProps = {
   isLoggedIn: boolean;
@@ -9,6 +10,10 @@ export type MainProps = {
 const Main = ({ isLoggedIn, handleLogout }: MainProps) => {
   return (
     <div className="main">
+      <div className="main__title">
+        <TruckLogo className="logo logo--big" />
+        <h2 className="main__title__header">Kwalifikacja Wstępna</h2>
+      </div>
       {isLoggedIn ? (
         <Button
           text="Wyloguj się"
@@ -31,6 +36,11 @@ const Main = ({ isLoggedIn, handleLogout }: MainProps) => {
       <Link to="/test" className="button">
         Tryb Testu
       </Link>
+      {isLoggedIn ? (
+        <Link to="/user/questions" className="button">
+          Pytania Użytkownika
+        </Link>
+      ) : null}
     </div>
   );
 };

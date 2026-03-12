@@ -1,0 +1,967 @@
+2026-03-04 02:03:36 [DBG] Connection id "0HNJPDT111S73" accepted.
+2026-03-04 02:03:36 [DBG] Connection id "0HNJPDT111S73" started.
+2026-03-04 02:03:36 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/api/Question/test - null null
+2026-03-04 02:03:36 [DBG] 1 candidate(s) found for the request path '/api/Question/test'
+2026-03-04 02:03:36 [DBG] Endpoint 'QuestionController.GetTest (server)' with route pattern 'api/Question/test' is valid for the request path '/api/Question/test'
+2026-03-04 02:03:36 [DBG] Request matched endpoint 'QuestionController.GetTest (server)'
+2026-03-04 02:03:36 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-03-04 02:03:36 [INF] CORS policy execution successful.
+2026-03-04 02:03:36 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:36 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:03:36 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:03:36 [INF] Executing endpoint 'QuestionController.GetTest (server)'
+2026-03-04 02:03:36 [INF] Route matched with {action = "GetTest", controller = "Question"}. Executing controller action with signature System.Threading.Tasks.Task`1[ServiceResponse`1[TestDto]] GetTest() on controller QuestionController (server).
+2026-03-04 02:03:36 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-03-04 02:03:36 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-03-04 02:03:36 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-03-04 02:03:36 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-03-04 02:03:36 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-03-04 02:03:36 [DBG] Executing controller factory for controller QuestionController (server)
+2026-03-04 02:03:36 [DBG] Executed controller factory for controller QuestionController (server)
+2026-03-04 02:03:36 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-03-04 02:03:37 [DBG] Compiling query expression: 
+'DbSet<BaseQuestion>()
+    .Include(q => q.Answers)
+    .OrderBy(q => Guid.NewGuid())
+    .Take(@p)'
+2026-03-04 02:03:37 [DBG] Including navigation: 'BaseQuestion.Answers'.
+2026-03-04 02:03:37 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<BaseQuestion>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IPropertyBase, int> { [Property: BaseQuestion.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: BaseQuestion.Content (string) Required, 1], [Property: BaseQuestion.CorrectAnswerId (int) Required, 2], [Property: BaseQuestion.Image (string), 3] }
+            1 -> 0
+            2 -> Dictionary<IPropertyBase, int> { [Property: BaseAnswer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 4], [Property: BaseAnswer.AnswerIndex (int) Required, 5], [Property: BaseAnswer.BaseQuestionId (int) Required FK Index, 6], [Property: BaseAnswer.Content (string) Required, 7] }
+            3 -> 4
+        SELECT b1.Id, b1.Content, b1.CorrectAnswerId, b1.Image, b0.Id, b0.AnswerIndex, b0.BaseQuestionId, b0.Content
+        FROM 
+        (
+            SELECT TOP(@p) b.Id, b.Content, b.CorrectAnswerId, b.Image, gen_random_uuid() AS c
+            FROM BaseQuestions AS b
+            ORDER BY gen_random_uuid() ASC
+        ) AS b1
+        LEFT JOIN BaseAnswers AS b0 ON b1.Id == b0.BaseQuestionId
+        ORDER BY b1.c ASC, b1.Id ASC) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Client Projections:
+            0 -> Dictionary<IPropertyBase, int> { [Property: BaseQuestion.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: BaseQuestion.Content (string) Required, 1], [Property: BaseQuestion.CorrectAnswerId (int) Required, 2], [Property: BaseQuestion.Image (string), 3] }
+            1 -> 0
+            2 -> Dictionary<IPropertyBase, int> { [Property: BaseAnswer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 4], [Property: BaseAnswer.AnswerIndex (int) Required, 5], [Property: BaseAnswer.BaseQuestionId (int) Required FK Index, 6], [Property: BaseAnswer.Content (string) Required, 7] }
+            3 -> 4
+        SELECT b1.Id, b1.Content, b1.CorrectAnswerId, b1.Image, b0.Id, b0.AnswerIndex, b0.BaseQuestionId, b0.Content
+        FROM 
+        (
+            SELECT TOP(@p) b.Id, b.Content, b.CorrectAnswerId, b.Image, gen_random_uuid() AS c
+            FROM BaseQuestions AS b
+            ORDER BY gen_random_uuid() ASC
+        ) AS b1
+        LEFT JOIN BaseAnswers AS b0 ON b1.Id == b0.BaseQuestionId
+        ORDER BY b1.c ASC, b1.Id ASC, 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        resultContext.Values == null ? 
+        {
+            BaseQuestion entity;
+            entity = 
+            {
+                MaterializationContext materializationContext1;
+                IEntityType entityType1;
+                BaseQuestion instance1;
+                InternalEntityEntry entry1;
+                bool hasNullKey1;
+                materializationContext1 = new MaterializationContext(
+                    [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                    queryContext.Context
+                );
+                instance1 = default(BaseQuestion);
+                entry1 = queryContext.TryGetEntry(
+                    key: [LIFTABLE Constant: Key: BaseQuestion.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("BaseQuestion").FindPrimaryKey()], 
+                    keyValues: new object[]{ (object)dataReader.GetInt32(0) }, 
+                    throwOnNullKey: True, 
+                    hasNullKey: hasNullKey1);
+                !(hasNullKey1) ? entry1 != default(InternalEntityEntry) ? 
+                {
+                    entityType1 = entry1.EntityType;
+                    return instance1 = (BaseQuestion)entry1.Entity;
+                } : 
+                {
+                    ISnapshot shadowSnapshot1;
+                    shadowSnapshot1 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                    entityType1 = [LIFTABLE Constant: EntityType: BaseQuestion | Resolver: namelessParameter{0} => namelessParameter{0}.Dependencies.Model.FindEntityType("BaseQuestion")];
+                    instance1 = switch (entityType1)
+                    {
+                        case [LIFTABLE Constant: EntityType: BaseQuestion | Resolver: namelessParameter{1} => namelessParameter{1}.Dependencies.Model.FindEntityType("BaseQuestion")]: 
+                            {
+                                return 
+                                {
+                                    BaseQuestion instance;
+                                    instance = new BaseQuestion();
+                                    instance.<Id>k__BackingField = dataReader.GetInt32(0);
+                                    instance.<Content>k__BackingField = dataReader.GetString(1);
+                                    instance.<CorrectAnswerId>k__BackingField = dataReader.GetInt32(2);
+                                    instance.<Image>k__BackingField = dataReader.IsDBNull(3) ? default(string) : dataReader.GetString(3);
+                                    (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                        context: materializationContext1.Context, 
+                                        entity: instance, 
+                                        queryTrackingBehavior: TrackAll, 
+                                        structuralType: [LIFTABLE Constant: EntityType: BaseQuestion | Resolver: namelessParameter{2} => namelessParameter{2}.Dependencies.Model.FindEntityType("BaseQuestion")]) : default(void);
+                                    return instance;
+                                }}
+                        default: 
+                            default(BaseQuestion)
+                    }
+                    ;
+                    entry1 = entityType1 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                        entityType: entityType1, 
+                        entity: instance1, 
+                        snapshot: shadowSnapshot1);
+                    return instance1;
+                } : default(void);
+                return instance1;
+            };
+            resultContext.Values = new object[]{ entity };
+            ShaperProcessingExpressionVisitor.InitializeIncludeCollection<BaseQuestion, BaseQuestion>(
+                collectionId: 0, 
+                queryContext: queryContext, 
+                dbDataReader: dataReader, 
+                resultCoordinator: resultCoordinator, 
+                entity: (BaseQuestion)(resultContext.Values[0]), 
+                parentIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+                outerIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+                navigation: [LIFTABLE Constant: Navigation: BaseQuestion.Answers (List<BaseAnswer>) Collection ToDependent BaseAnswer Inverse: BaseQuestion | Resolver: namelessParameter{3} => namelessParameter{3}.Dependencies.Model.FindEntityType("BaseQuestion").FindNavigation("Answers")], 
+                clrCollectionAccessor: [LIFTABLE Constant: ClrCollectionAccessor<BaseQuestion, List<BaseAnswer>, BaseAnswer> | Resolver: namelessParameter{4} => namelessParameter{4}.Dependencies.Model.FindEntityType("BaseQuestion").FindNavigation("Answers").GetCollectionAccessor()], 
+                trackingQuery: True, 
+                setLoaded: True);
+        } : default(void);
+        ShaperProcessingExpressionVisitor.PopulateIncludeCollection<BaseQuestion, BaseAnswer>(
+            collectionId: 0, 
+            queryContext: queryContext, 
+            dbDataReader: dataReader, 
+            resultCoordinator: resultCoordinator, 
+            parentIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+            outerIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+            selfIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)dataReader.IsDBNull(4) ? default(int?) : (int?)dataReader.GetInt32(4) }], 
+            parentIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            outerIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            selfIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            innerShaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+            {
+                BaseAnswer entity;
+                entity = 
+                {
+                    MaterializationContext materializationContext2;
+                    IEntityType entityType2;
+                    BaseAnswer instance2;
+                    InternalEntityEntry entry2;
+                    bool hasNullKey2;
+                    materializationContext2 = new MaterializationContext(
+                        [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                        queryContext.Context
+                    );
+                    instance2 = default(BaseAnswer);
+                    entry2 = queryContext.TryGetEntry(
+                        key: [LIFTABLE Constant: Key: BaseAnswer.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("BaseAnswer").FindPrimaryKey()], 
+                        keyValues: new object[]{ dataReader.IsDBNull(4) ? default(object) : (object)dataReader.GetInt32(4) }, 
+                        throwOnNullKey: False, 
+                        hasNullKey: hasNullKey2);
+                    !(hasNullKey2) ? entry2 != default(InternalEntityEntry) ? 
+                    {
+                        entityType2 = entry2.EntityType;
+                        return instance2 = (BaseAnswer)entry2.Entity;
+                    } : 
+                    {
+                        ISnapshot shadowSnapshot2;
+                        shadowSnapshot2 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                        entityType2 = [LIFTABLE Constant: EntityType: BaseAnswer | Resolver: namelessParameter{5} => namelessParameter{5}.Dependencies.Model.FindEntityType("BaseAnswer")];
+                        instance2 = switch (entityType2)
+                        {
+                            case [LIFTABLE Constant: EntityType: BaseAnswer | Resolver: namelessParameter{6} => namelessParameter{6}.Dependencies.Model.FindEntityType("BaseAnswer")]: 
+                                {
+                                    return 
+                                    {
+                                        BaseAnswer instance;
+                                        instance = new BaseAnswer();
+                                        instance.<Id>k__BackingField = dataReader.IsDBNull(4) ? default(int) : dataReader.GetInt32(4);
+                                        instance.<AnswerIndex>k__BackingField = dataReader.IsDBNull(5) ? default(int) : dataReader.GetInt32(5);
+                                        instance.<BaseQuestionId>k__BackingField = dataReader.IsDBNull(6) ? default(int) : dataReader.GetInt32(6);
+                                        instance.<Content>k__BackingField = dataReader.IsDBNull(7) ? default(string) : dataReader.GetString(7);
+                                        (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                            context: materializationContext2.Context, 
+                                            entity: instance, 
+                                            queryTrackingBehavior: TrackAll, 
+                                            structuralType: [LIFTABLE Constant: EntityType: BaseAnswer | Resolver: namelessParameter{7} => namelessParameter{7}.Dependencies.Model.FindEntityType("BaseAnswer")]) : default(void);
+                                        return instance;
+                                    }}
+                            default: 
+                                default(BaseAnswer)
+                        }
+                        ;
+                        entry2 = entityType2 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                            entityType: entityType2, 
+                            entity: instance2, 
+                            snapshot: shadowSnapshot2);
+                        return instance2;
+                    } : default(void);
+                    return instance2;
+                };
+                return entity;
+            }, 
+            inverseNavigation: [LIFTABLE Constant: Navigation: BaseAnswer.BaseQuestion (BaseQuestion) Required ToPrincipal BaseQuestion Inverse: Answers | Resolver: namelessParameter{8} => namelessParameter{8}.Dependencies.Model.FindEntityType("BaseAnswer").FindNavigation("BaseQuestion")], 
+            fixup: (namelessParameter{9}, namelessParameter{10}) => 
+            {
+                [LIFTABLE Constant: ClrCollectionAccessor<BaseQuestion, List<BaseAnswer>, BaseAnswer> | Resolver: namelessParameter{11} => namelessParameter{11}.Dependencies.Model.FindEntityType("BaseQuestion").FindNavigation("Answers").GetCollectionAccessor()].Add(
+                    entity: namelessParameter{9}, 
+                    value: namelessParameter{10}, 
+                    forMaterialization: True);
+                return namelessParameter{10}.<BaseQuestion>k__BackingField = namelessParameter{9};
+            }, 
+            trackingQuery: True);
+        return IsTrue(resultCoordinator.ResultReady)
+         ? (BaseQuestion)(resultContext.Values[0]) : default(BaseQuestion);
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)'
+2026-03-04 02:03:37 [DBG] Creating DbConnection.
+2026-03-04 02:03:37 [DBG] Created DbConnection. (4ms).
+2026-03-04 02:03:37 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:37 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:37 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-03-04 02:03:37 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2026-03-04 02:03:37 [DBG] Initialized DbCommand for 'ExecuteReader' (9ms).
+2026-03-04 02:03:37 [DBG] Executing DbCommand [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b1."Id", b1."Content", b1."CorrectAnswerId", b1."Image", b0."Id", b0."AnswerIndex", b0."BaseQuestionId", b0."Content"
+FROM (
+    SELECT b."Id", b."Content", b."CorrectAnswerId", b."Image", gen_random_uuid() AS c
+    FROM "BaseQuestions" AS b
+    ORDER BY gen_random_uuid()
+    LIMIT @p
+) AS b1
+LEFT JOIN "BaseAnswers" AS b0 ON b1."Id" = b0."BaseQuestionId"
+ORDER BY b1.c, b1."Id"
+2026-03-04 02:03:37 [INF] Executed DbCommand (259ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b1."Id", b1."Content", b1."CorrectAnswerId", b1."Image", b0."Id", b0."AnswerIndex", b0."BaseQuestionId", b0."Content"
+FROM (
+    SELECT b."Id", b."Content", b."CorrectAnswerId", b."Image", gen_random_uuid() AS c
+    FROM "BaseQuestions" AS b
+    ORDER BY gen_random_uuid()
+    LIMIT @p
+) AS b1
+LEFT JOIN "BaseAnswers" AS b0 ON b1."Id" = b0."BaseQuestionId"
+ORDER BY b1.c, b1."Id"
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:37 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'BaseQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'BaseAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 215ms reading results.
+2026-03-04 02:03:38 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (1ms).
+2026-03-04 02:03:38 [DBG] Compiling query expression: 
+'DbSet<SpecialQuestion>()
+    .Include(q => q.Answers)
+    .OrderBy(q => Guid.NewGuid())
+    .Take(@p)'
+2026-03-04 02:03:38 [DBG] Including navigation: 'SpecialQuestion.Answers'.
+2026-03-04 02:03:38 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<SpecialQuestion>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IPropertyBase, int> { [Property: SpecialQuestion.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: SpecialQuestion.Content (string) Required, 1], [Property: SpecialQuestion.CorrectAnswerId (int) Required, 2], [Property: SpecialQuestion.Image (string), 3] }
+            1 -> 0
+            2 -> Dictionary<IPropertyBase, int> { [Property: SpecialAnswer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 4], [Property: SpecialAnswer.AnswerIndex (int) Required, 5], [Property: SpecialAnswer.Content (string) Required, 6], [Property: SpecialAnswer.SpecialQuestionId (int) Required FK Index, 7] }
+            3 -> 4
+        SELECT s1.Id, s1.Content, s1.CorrectAnswerId, s1.Image, s0.Id, s0.AnswerIndex, s0.Content, s0.SpecialQuestionId
+        FROM 
+        (
+            SELECT TOP(@p) s.Id, s.Content, s.CorrectAnswerId, s.Image, gen_random_uuid() AS c
+            FROM SpecialQuestions AS s
+            ORDER BY gen_random_uuid() ASC
+        ) AS s1
+        LEFT JOIN SpecialAnswers AS s0 ON s1.Id == s0.SpecialQuestionId
+        ORDER BY s1.c ASC, s1.Id ASC) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Client Projections:
+            0 -> Dictionary<IPropertyBase, int> { [Property: SpecialQuestion.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: SpecialQuestion.Content (string) Required, 1], [Property: SpecialQuestion.CorrectAnswerId (int) Required, 2], [Property: SpecialQuestion.Image (string), 3] }
+            1 -> 0
+            2 -> Dictionary<IPropertyBase, int> { [Property: SpecialAnswer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 4], [Property: SpecialAnswer.AnswerIndex (int) Required, 5], [Property: SpecialAnswer.Content (string) Required, 6], [Property: SpecialAnswer.SpecialQuestionId (int) Required FK Index, 7] }
+            3 -> 4
+        SELECT s1.Id, s1.Content, s1.CorrectAnswerId, s1.Image, s0.Id, s0.AnswerIndex, s0.Content, s0.SpecialQuestionId
+        FROM 
+        (
+            SELECT TOP(@p) s.Id, s.Content, s.CorrectAnswerId, s.Image, gen_random_uuid() AS c
+            FROM SpecialQuestions AS s
+            ORDER BY gen_random_uuid() ASC
+        ) AS s1
+        LEFT JOIN SpecialAnswers AS s0 ON s1.Id == s0.SpecialQuestionId
+        ORDER BY s1.c ASC, s1.Id ASC, 
+        False, 
+        Parameter
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        resultContext.Values == null ? 
+        {
+            SpecialQuestion entity;
+            entity = 
+            {
+                MaterializationContext materializationContext1;
+                IEntityType entityType1;
+                SpecialQuestion instance1;
+                InternalEntityEntry entry1;
+                bool hasNullKey1;
+                materializationContext1 = new MaterializationContext(
+                    [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                    queryContext.Context
+                );
+                instance1 = default(SpecialQuestion);
+                entry1 = queryContext.TryGetEntry(
+                    key: [LIFTABLE Constant: Key: SpecialQuestion.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("SpecialQuestion").FindPrimaryKey()], 
+                    keyValues: new object[]{ (object)dataReader.GetInt32(0) }, 
+                    throwOnNullKey: True, 
+                    hasNullKey: hasNullKey1);
+                !(hasNullKey1) ? entry1 != default(InternalEntityEntry) ? 
+                {
+                    entityType1 = entry1.EntityType;
+                    return instance1 = (SpecialQuestion)entry1.Entity;
+                } : 
+                {
+                    ISnapshot shadowSnapshot1;
+                    shadowSnapshot1 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                    entityType1 = [LIFTABLE Constant: EntityType: SpecialQuestion | Resolver: namelessParameter{0} => namelessParameter{0}.Dependencies.Model.FindEntityType("SpecialQuestion")];
+                    instance1 = switch (entityType1)
+                    {
+                        case [LIFTABLE Constant: EntityType: SpecialQuestion | Resolver: namelessParameter{1} => namelessParameter{1}.Dependencies.Model.FindEntityType("SpecialQuestion")]: 
+                            {
+                                return 
+                                {
+                                    SpecialQuestion instance;
+                                    instance = new SpecialQuestion();
+                                    instance.<Id>k__BackingField = dataReader.GetInt32(0);
+                                    instance.<Content>k__BackingField = dataReader.GetString(1);
+                                    instance.<CorrectAnswerId>k__BackingField = dataReader.GetInt32(2);
+                                    instance.<Image>k__BackingField = dataReader.IsDBNull(3) ? default(string) : dataReader.GetString(3);
+                                    (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                        context: materializationContext1.Context, 
+                                        entity: instance, 
+                                        queryTrackingBehavior: TrackAll, 
+                                        structuralType: [LIFTABLE Constant: EntityType: SpecialQuestion | Resolver: namelessParameter{2} => namelessParameter{2}.Dependencies.Model.FindEntityType("SpecialQuestion")]) : default(void);
+                                    return instance;
+                                }}
+                        default: 
+                            default(SpecialQuestion)
+                    }
+                    ;
+                    entry1 = entityType1 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                        entityType: entityType1, 
+                        entity: instance1, 
+                        snapshot: shadowSnapshot1);
+                    return instance1;
+                } : default(void);
+                return instance1;
+            };
+            resultContext.Values = new object[]{ entity };
+            ShaperProcessingExpressionVisitor.InitializeIncludeCollection<SpecialQuestion, SpecialQuestion>(
+                collectionId: 0, 
+                queryContext: queryContext, 
+                dbDataReader: dataReader, 
+                resultCoordinator: resultCoordinator, 
+                entity: (SpecialQuestion)(resultContext.Values[0]), 
+                parentIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+                outerIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+                navigation: [LIFTABLE Constant: Navigation: SpecialQuestion.Answers (List<SpecialAnswer>) Collection ToDependent SpecialAnswer Inverse: SpecialQuestion | Resolver: namelessParameter{3} => namelessParameter{3}.Dependencies.Model.FindEntityType("SpecialQuestion").FindNavigation("Answers")], 
+                clrCollectionAccessor: [LIFTABLE Constant: ClrCollectionAccessor<SpecialQuestion, List<SpecialAnswer>, SpecialAnswer> | Resolver: namelessParameter{4} => namelessParameter{4}.Dependencies.Model.FindEntityType("SpecialQuestion").FindNavigation("Answers").GetCollectionAccessor()], 
+                trackingQuery: True, 
+                setLoaded: True);
+        } : default(void);
+        ShaperProcessingExpressionVisitor.PopulateIncludeCollection<SpecialQuestion, SpecialAnswer>(
+            collectionId: 0, 
+            queryContext: queryContext, 
+            dbDataReader: dataReader, 
+            resultCoordinator: resultCoordinator, 
+            parentIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+            outerIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)(int?)dataReader.GetInt32(0) }], 
+            selfIdentifier: [LIFTABLE Constant: Func<QueryContext, DbDataReader, object[]> | Resolver: _ => (queryContext, dataReader) => new object[]{ (object)dataReader.IsDBNull(4) ? default(int?) : (int?)dataReader.GetInt32(4) }], 
+            parentIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            outerIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            selfIdentifierValueComparers: [LIFTABLE Constant: Func<object, object, bool>[] { Func<object, object, bool> } | Resolver: _ => new Func<object, object, bool>[]{ (left, right) => left == null ? right == null : right != null && (int)left == (int)right }], 
+            innerShaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+            {
+                SpecialAnswer entity;
+                entity = 
+                {
+                    MaterializationContext materializationContext2;
+                    IEntityType entityType2;
+                    SpecialAnswer instance2;
+                    InternalEntityEntry entry2;
+                    bool hasNullKey2;
+                    materializationContext2 = new MaterializationContext(
+                        [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                        queryContext.Context
+                    );
+                    instance2 = default(SpecialAnswer);
+                    entry2 = queryContext.TryGetEntry(
+                        key: [LIFTABLE Constant: Key: SpecialAnswer.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("SpecialAnswer").FindPrimaryKey()], 
+                        keyValues: new object[]{ dataReader.IsDBNull(4) ? default(object) : (object)dataReader.GetInt32(4) }, 
+                        throwOnNullKey: False, 
+                        hasNullKey: hasNullKey2);
+                    !(hasNullKey2) ? entry2 != default(InternalEntityEntry) ? 
+                    {
+                        entityType2 = entry2.EntityType;
+                        return instance2 = (SpecialAnswer)entry2.Entity;
+                    } : 
+                    {
+                        ISnapshot shadowSnapshot2;
+                        shadowSnapshot2 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                        entityType2 = [LIFTABLE Constant: EntityType: SpecialAnswer | Resolver: namelessParameter{5} => namelessParameter{5}.Dependencies.Model.FindEntityType("SpecialAnswer")];
+                        instance2 = switch (entityType2)
+                        {
+                            case [LIFTABLE Constant: EntityType: SpecialAnswer | Resolver: namelessParameter{6} => namelessParameter{6}.Dependencies.Model.FindEntityType("SpecialAnswer")]: 
+                                {
+                                    return 
+                                    {
+                                        SpecialAnswer instance;
+                                        instance = new SpecialAnswer();
+                                        instance.<Id>k__BackingField = dataReader.IsDBNull(4) ? default(int) : dataReader.GetInt32(4);
+                                        instance.<AnswerIndex>k__BackingField = dataReader.IsDBNull(5) ? default(int) : dataReader.GetInt32(5);
+                                        instance.<Content>k__BackingField = dataReader.IsDBNull(6) ? default(string) : dataReader.GetString(6);
+                                        instance.<SpecialQuestionId>k__BackingField = dataReader.IsDBNull(7) ? default(int) : dataReader.GetInt32(7);
+                                        (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                            context: materializationContext2.Context, 
+                                            entity: instance, 
+                                            queryTrackingBehavior: TrackAll, 
+                                            structuralType: [LIFTABLE Constant: EntityType: SpecialAnswer | Resolver: namelessParameter{7} => namelessParameter{7}.Dependencies.Model.FindEntityType("SpecialAnswer")]) : default(void);
+                                        return instance;
+                                    }}
+                            default: 
+                                default(SpecialAnswer)
+                        }
+                        ;
+                        entry2 = entityType2 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                            entityType: entityType2, 
+                            entity: instance2, 
+                            snapshot: shadowSnapshot2);
+                        return instance2;
+                    } : default(void);
+                    return instance2;
+                };
+                return entity;
+            }, 
+            inverseNavigation: [LIFTABLE Constant: Navigation: SpecialAnswer.SpecialQuestion (SpecialQuestion) Required ToPrincipal SpecialQuestion Inverse: Answers | Resolver: namelessParameter{8} => namelessParameter{8}.Dependencies.Model.FindEntityType("SpecialAnswer").FindNavigation("SpecialQuestion")], 
+            fixup: (namelessParameter{9}, namelessParameter{10}) => 
+            {
+                [LIFTABLE Constant: ClrCollectionAccessor<SpecialQuestion, List<SpecialAnswer>, SpecialAnswer> | Resolver: namelessParameter{11} => namelessParameter{11}.Dependencies.Model.FindEntityType("SpecialQuestion").FindNavigation("Answers").GetCollectionAccessor()].Add(
+                    entity: namelessParameter{9}, 
+                    value: namelessParameter{10}, 
+                    forMaterialization: True);
+                return namelessParameter{10}.<SpecialQuestion>k__BackingField = namelessParameter{9};
+            }, 
+            trackingQuery: True);
+        return IsTrue(resultCoordinator.ResultReady)
+         ? (SpecialQuestion)(resultContext.Values[0]) : default(SpecialQuestion);
+    }, 
+    contextType: AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)'
+2026-03-04 02:03:38 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-03-04 02:03:38 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-03-04 02:03:38 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-03-04 02:03:38 [DBG] Executing DbCommand [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s1."Id", s1."Content", s1."CorrectAnswerId", s1."Image", s0."Id", s0."AnswerIndex", s0."Content", s0."SpecialQuestionId"
+FROM (
+    SELECT s."Id", s."Content", s."CorrectAnswerId", s."Image", gen_random_uuid() AS c
+    FROM "SpecialQuestions" AS s
+    ORDER BY gen_random_uuid()
+    LIMIT @p
+) AS s1
+LEFT JOIN "SpecialAnswers" AS s0 ON s1."Id" = s0."SpecialQuestionId"
+ORDER BY s1.c, s1."Id"
+2026-03-04 02:03:38 [INF] Executed DbCommand (15ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s1."Id", s1."Content", s1."CorrectAnswerId", s1."Image", s0."Id", s0."AnswerIndex", s0."Content", s0."SpecialQuestionId"
+FROM (
+    SELECT s."Id", s."Content", s."CorrectAnswerId", s."Image", gen_random_uuid() AS c
+    FROM "SpecialQuestions" AS s
+    ORDER BY gen_random_uuid()
+    LIMIT @p
+) AS s1
+LEFT JOIN "SpecialAnswers" AS s0 ON s1."Id" = s0."SpecialQuestionId"
+ORDER BY s1.c, s1."Id"
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialQuestion' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Context 'AppDbContext' started tracking 'SpecialAnswer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:03:38 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 13ms reading results.
+2026-03-04 02:03:38 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:03:38 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-03-04 02:03:38 [DBG] No information found on request to perform content negotiation.
+2026-03-04 02:03:38 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-03-04 02:03:38 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-03-04 02:03:38 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-03-04 02:03:38 [INF] Executing ObjectResult, writing value of type 'ServiceResponse`1[[TestDto, server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-04 02:03:38 [INF] Executed action QuestionController.GetTest (server) in 1387.2393ms
+2026-03-04 02:03:38 [INF] Executed endpoint 'QuestionController.GetTest (server)'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S73" completed keep alive response.
+2026-03-04 02:03:38 [DBG] 'AppDbContext' disposed.
+2026-03-04 02:03:38 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:03:38 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/api/Question/test - 200 null application/json; charset=utf-8 1545.8523ms
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S74" accepted.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S74" started.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S75" accepted.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S75" started.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S76" accepted.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S77" accepted.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S76" started.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S77" started.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S78" accepted.
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S78" started.
+2026-03-04 02:03:38 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/327.jpg - null null
+2026-03-04 02:03:38 [DBG] No candidates found for the request path '/Resources/images/base/327.jpg'
+2026-03-04 02:03:38 [DBG] Request did not match any endpoints
+2026-03-04 02:03:38 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:38 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/155.jpg - null null
+2026-03-04 02:03:38 [DBG] No candidates found for the request path '/Resources/images/base/155.jpg'
+2026-03-04 02:03:38 [DBG] Request did not match any endpoints
+2026-03-04 02:03:38 [DBG] The request path /Resources/images/base/327.jpg does not match an existing file
+2026-03-04 02:03:38 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:38 [DBG] The request path /Resources/images/base/155.jpg does not match an existing file
+2026-03-04 02:03:38 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/88.jpg - null null
+2026-03-04 02:03:38 [DBG] No candidates found for the request path '/Resources/images/base/88.jpg'
+2026-03-04 02:03:38 [DBG] Request did not match any endpoints
+2026-03-04 02:03:38 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/274.jpg - null null
+2026-03-04 02:03:38 [DBG] No candidates found for the request path '/Resources/images/base/274.jpg'
+2026-03-04 02:03:38 [DBG] Request did not match any endpoints
+2026-03-04 02:03:38 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:38 [DBG] The request path /Resources/images/base/274.jpg does not match an existing file
+2026-03-04 02:03:38 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:38 [DBG] The request path /Resources/images/base/88.jpg does not match an existing file
+2026-03-04 02:03:38 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/308.jpg - null null
+2026-03-04 02:03:38 [DBG] No candidates found for the request path '/Resources/images/base/308.jpg'
+2026-03-04 02:03:38 [INF] Sending file. Request path: '/images/base/327.jpg'. Physical path: 'D:\JSy\quizKWC\server\Resources\images\base\327.jpg'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S74" completed keep alive response.
+2026-03-04 02:03:38 [DBG] Request did not match any endpoints
+2026-03-04 02:03:38 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:03:38 [DBG] The request path /Resources/images/base/308.jpg does not match an existing file
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/327.jpg - 200 56934 image/jpeg 37.6446ms
+2026-03-04 02:03:38 [INF] Sending file. Request path: '/images/base/274.jpg'. Physical path: 'D:\JSy\quizKWC\server\Resources\images\base\274.jpg'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S77" completed keep alive response.
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/274.jpg - 200 75748 image/jpeg 99.5923ms
+2026-03-04 02:03:38 [INF] Sending file. Request path: '/images/base/308.jpg'. Physical path: 'D:\JSy\quizKWC\server\Resources\images\base\308.jpg'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S78" completed keep alive response.
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/308.jpg - 200 61549 image/jpeg 75.7653ms
+2026-03-04 02:03:38 [INF] Sending file. Request path: '/images/base/88.jpg'. Physical path: 'D:\JSy\quizKWC\server\Resources\images\base\88.jpg'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S76" completed keep alive response.
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/88.jpg - 200 48514 image/jpeg 104.3541ms
+2026-03-04 02:03:38 [INF] Sending file. Request path: '/images/base/155.jpg'. Physical path: 'D:\JSy\quizKWC\server\Resources\images\base\155.jpg'
+2026-03-04 02:03:38 [DBG] Connection id "0HNJPDT111S75" completed keep alive response.
+2026-03-04 02:03:38 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/Resources/images/base/155.jpg - 200 37274 image/jpeg 110.5384ms
+2026-03-04 02:05:48 [DBG] Connection id "0HNJPDT111S73" disconnecting.
+2026-03-04 02:05:48 [DBG] Connection id "0HNJPDT111S73" stopped.
+2026-03-04 02:05:48 [DBG] Connection id "0HNJPDT111S73" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S78" disconnecting.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S78" stopped.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S75" disconnecting.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S75" stopped.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S76" disconnecting.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S76" stopped.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S77" disconnecting.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S77" stopped.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S78" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S75" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S76" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S77" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S74" disconnecting.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S74" stopped.
+2026-03-04 02:05:49 [DBG] Connection id "0HNJPDT111S74" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-03-04 02:34:26 [DBG] Connection id "0HNJPDT111S79" accepted.
+2026-03-04 02:34:26 [DBG] Connection id "0HNJPDT111S79" started.
+2026-03-04 02:34:26 [INF] Request starting HTTP/1.1 OPTIONS http://192.168.56.1:5171/auth/login - null null
+2026-03-04 02:34:26 [DBG] 1 candidate(s) found for the request path '/auth/login'
+2026-03-04 02:34:26 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-03-04 02:34:26 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-03-04 02:34:26 [INF] CORS policy execution successful.
+2026-03-04 02:34:26 [DBG] The request is a preflight request.
+2026-03-04 02:34:26 [DBG] Connection id "0HNJPDT111S79" completed keep alive response.
+2026-03-04 02:34:26 [INF] Request finished HTTP/1.1 OPTIONS http://192.168.56.1:5171/auth/login - 204 null null 42.7094ms
+2026-03-04 02:34:26 [INF] Request starting HTTP/1.1 POST http://192.168.56.1:5171/auth/login - application/json 48
+2026-03-04 02:34:26 [DBG] 1 candidate(s) found for the request path '/auth/login'
+2026-03-04 02:34:26 [DBG] Endpoint 'AuthController.Login (server)' with route pattern 'auth/login' is valid for the request path '/auth/login'
+2026-03-04 02:34:26 [DBG] Request matched endpoint 'AuthController.Login (server)'
+2026-03-04 02:34:26 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-03-04 02:34:26 [INF] CORS policy execution successful.
+2026-03-04 02:34:26 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-04 02:34:27 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:34:27 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:34:27 [INF] Executing endpoint 'AuthController.Login (server)'
+2026-03-04 02:34:27 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LoginUserDto) on controller AuthController (server).
+2026-03-04 02:34:27 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-03-04 02:34:27 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-03-04 02:34:27 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-03-04 02:34:27 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-03-04 02:34:27 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-03-04 02:34:27 [DBG] Executing controller factory for controller AuthController (server)
+2026-03-04 02:34:27 [DBG] Executed controller factory for controller AuthController (server)
+2026-03-04 02:34:27 [DBG] Attempting to bind parameter 'loginUserDto' of type 'LoginUserDto' ...
+2026-03-04 02:34:27 [DBG] Attempting to bind parameter 'loginUserDto' of type 'LoginUserDto' using the name '' in request data ...
+2026-03-04 02:34:27 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-03-04 02:34:27 [DBG] Connection id "0HNJPDT111S79", Request id "0HNJPDT111S79:00000002": started reading request body.
+2026-03-04 02:34:27 [DBG] Connection id "0HNJPDT111S79", Request id "0HNJPDT111S79:00000002": done reading request body.
+2026-03-04 02:34:27 [DBG] JSON input formatter succeeded, deserializing to type 'LoginUserDto'
+2026-03-04 02:34:27 [DBG] Done attempting to bind parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-03-04 02:34:27 [DBG] Done attempting to bind parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-03-04 02:34:27 [DBG] Attempting to validate the bound parameter 'loginUserDto' of type 'LoginUserDto' ...
+2026-03-04 02:34:27 [DBG] Done attempting to validate the bound parameter 'loginUserDto' of type 'LoginUserDto'.
+2026-03-04 02:34:27 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-03-04 02:34:27 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(u => u.Email == @loginUserDto_Email)'
+2026-03-04 02:34:27 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: SingleQueryingEnumerable.Create<User>(
+        relationalQueryContext: (RelationalQueryContext)queryContext, 
+        relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IPropertyBase, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.BaseProggress (int) Required, 1], [Property: User.Email (string) Required, 2], [Property: User.Name (string) Required, 3], [Property: User.PasswordHash (string) Required, 4], [Property: User.SpecialProggress (int) Required, 5], [Property: User.TaggedBaseIds (List<int>) Required Element type: int Required, 6], [Property: User.TaggedSpecialIds (List<int>) Required Element type: int Required, 7], [Property: User.WrongBaseIds (List<int>) Required Element type: int Required, 8], [Property: User.WrongSpecialIds (List<int>) Required Element type: int Required, 9] }
+            SELECT TOP(1) u.Id, u.BaseProggress, u.Email, u.Name, u.PasswordHash, u.SpecialProggress, u.TaggedBaseIds, u.TaggedSpecialIds, u.WrongBaseIds, u.WrongSpecialIds
+            FROM Users AS u
+            WHERE u.Email == @loginUserDto_Email) | Resolver: c => new RelationalCommandCache(
+            c.Dependencies.MemoryCache, 
+            c.RelationalDependencies.QuerySqlGeneratorFactory, 
+            c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IPropertyBase, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.BaseProggress (int) Required, 1], [Property: User.Email (string) Required, 2], [Property: User.Name (string) Required, 3], [Property: User.PasswordHash (string) Required, 4], [Property: User.SpecialProggress (int) Required, 5], [Property: User.TaggedBaseIds (List<int>) Required Element type: int Required, 6], [Property: User.TaggedSpecialIds (List<int>) Required Element type: int Required, 7], [Property: User.WrongBaseIds (List<int>) Required Element type: int Required, 8], [Property: User.WrongSpecialIds (List<int>) Required Element type: int Required, 9] }
+            SELECT TOP(1) u.Id, u.BaseProggress, u.Email, u.Name, u.PasswordHash, u.SpecialProggress, u.TaggedBaseIds, u.TaggedSpecialIds, u.WrongBaseIds, u.WrongSpecialIds
+            FROM Users AS u
+            WHERE u.Email == @loginUserDto_Email, 
+            False, 
+            Parameter
+        )].GetRelationalCommandTemplate(parameters), 
+        readerColumns: null, 
+        shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+        {
+            User entity;
+            entity = 
+            {
+                MaterializationContext materializationContext1;
+                IEntityType entityType1;
+                User instance1;
+                InternalEntityEntry entry1;
+                bool hasNullKey1;
+                materializationContext1 = new MaterializationContext(
+                    [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                    queryContext.Context
+                );
+                instance1 = default(User);
+                entry1 = queryContext.TryGetEntry(
+                    key: [LIFTABLE Constant: Key: User.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("User").FindPrimaryKey()], 
+                    keyValues: new object[]{ (object)dataReader.GetInt32(0) }, 
+                    throwOnNullKey: True, 
+                    hasNullKey: hasNullKey1);
+                !(hasNullKey1) ? entry1 != default(InternalEntityEntry) ? 
+                {
+                    entityType1 = entry1.EntityType;
+                    return instance1 = (User)entry1.Entity;
+                } : 
+                {
+                    ISnapshot shadowSnapshot1;
+                    shadowSnapshot1 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                    entityType1 = [LIFTABLE Constant: EntityType: User | Resolver: namelessParameter{0} => namelessParameter{0}.Dependencies.Model.FindEntityType("User")];
+                    instance1 = switch (entityType1)
+                    {
+                        case [LIFTABLE Constant: EntityType: User | Resolver: namelessParameter{1} => namelessParameter{1}.Dependencies.Model.FindEntityType("User")]: 
+                            {
+                                return 
+                                {
+                                    User instance;
+                                    instance = new User();
+                                    instance.<Id>k__BackingField = dataReader.GetInt32(0);
+                                    instance.<BaseProggress>k__BackingField = dataReader.GetInt32(1);
+                                    instance.<Email>k__BackingField = dataReader.GetString(2);
+                                    instance.<Name>k__BackingField = dataReader.GetString(3);
+                                    instance.<PasswordHash>k__BackingField = dataReader.GetString(4);
+                                    instance.<SpecialProggress>k__BackingField = dataReader.GetInt32(5);
+                                    {
+                                        List<int> namelessParameter{2};
+                                        namelessParameter{2} = instance.<TaggedBaseIds>k__BackingField;
+                                        namelessParameter{2} == null || dataReader.GetFieldValue<List<int>>(6) == null || namelessParameter{2}.IsReadOnly ? instance.<TaggedBaseIds>k__BackingField = dataReader.GetFieldValue<List<int>>(6) : StructuralTypeMaterializerSource.PopulateList<int>(
+                                            buffer: dataReader.GetFieldValue<List<int>>(6), 
+                                            target: namelessParameter{2});
+                                    }
+                                    {
+                                        List<int> namelessParameter{3};
+                                        namelessParameter{3} = instance.<TaggedSpecialIds>k__BackingField;
+                                        namelessParameter{3} == null || dataReader.GetFieldValue<List<int>>(7) == null || namelessParameter{3}.IsReadOnly ? instance.<TaggedSpecialIds>k__BackingField = dataReader.GetFieldValue<List<int>>(7) : StructuralTypeMaterializerSource.PopulateList<int>(
+                                            buffer: dataReader.GetFieldValue<List<int>>(7), 
+                                            target: namelessParameter{3});
+                                    }
+                                    {
+                                        List<int> namelessParameter{4};
+                                        namelessParameter{4} = instance.<WrongBaseIds>k__BackingField;
+                                        namelessParameter{4} == null || dataReader.GetFieldValue<List<int>>(8) == null || namelessParameter{4}.IsReadOnly ? instance.<WrongBaseIds>k__BackingField = dataReader.GetFieldValue<List<int>>(8) : StructuralTypeMaterializerSource.PopulateList<int>(
+                                            buffer: dataReader.GetFieldValue<List<int>>(8), 
+                                            target: namelessParameter{4});
+                                    }
+                                    {
+                                        List<int> namelessParameter{5};
+                                        namelessParameter{5} = instance.<WrongSpecialIds>k__BackingField;
+                                        namelessParameter{5} == null || dataReader.GetFieldValue<List<int>>(9) == null || namelessParameter{5}.IsReadOnly ? instance.<WrongSpecialIds>k__BackingField = dataReader.GetFieldValue<List<int>>(9) : StructuralTypeMaterializerSource.PopulateList<int>(
+                                            buffer: dataReader.GetFieldValue<List<int>>(9), 
+                                            target: namelessParameter{5});
+                                    }(instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                        context: materializationContext1.Context, 
+                                        entity: instance, 
+                                        queryTrackingBehavior: TrackAll, 
+                                        structuralType: [LIFTABLE Constant: EntityType: User | Resolver: namelessParameter{6} => namelessParameter{6}.Dependencies.Model.FindEntityType("User")]) : default(void);
+                                    return instance;
+                                }}
+                        default: 
+                            default(User)
+                    }
+                    ;
+                    entry1 = entityType1 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                        entityType: entityType1, 
+                        entity: instance1, 
+                        snapshot: shadowSnapshot1);
+                    return instance1;
+                } : default(void);
+                return instance1;
+            };
+            return entity;
+        }, 
+        contextType: AppDbContext, 
+        standAloneStateManager: False, 
+        detailedErrorsEnabled: False, 
+        threadSafetyChecksEnabled: True), 
+    cancellationToken: queryContext.CancellationToken)'
+2026-03-04 02:34:27 [DBG] Creating DbConnection.
+2026-03-04 02:34:27 [DBG] Created DbConnection. (1ms).
+2026-03-04 02:34:27 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:27 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:27 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-03-04 02:34:27 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2026-03-04 02:34:27 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2026-03-04 02:34:27 [DBG] Executing DbCommand [Parameters=[@loginUserDto_Email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BaseProggress", u."Email", u."Name", u."PasswordHash", u."SpecialProggress", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Email" = @loginUserDto_Email
+LIMIT 1
+2026-03-04 02:34:27 [INF] Executed DbCommand (44ms) [Parameters=[@loginUserDto_Email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BaseProggress", u."Email", u."Name", u."PasswordHash", u."SpecialProggress", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Email" = @loginUserDto_Email
+LIMIT 1
+2026-03-04 02:34:27 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:34:27 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:27 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 6ms reading results.
+2026-03-04 02:34:27 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:27 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:34:28 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-03-04 02:34:28 [DBG] No information found on request to perform content negotiation.
+2026-03-04 02:34:28 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-03-04 02:34:28 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-03-04 02:34:28 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-03-04 02:34:28 [INF] Executing OkObjectResult, writing value of type 'ServiceResponse`1[[LoginUserInfoDto, server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-04 02:34:28 [INF] Executed action AuthController.Login (server) in 895.581ms
+2026-03-04 02:34:28 [INF] Executed endpoint 'AuthController.Login (server)'
+2026-03-04 02:34:28 [DBG] Connection id "0HNJPDT111S79" completed keep alive response.
+2026-03-04 02:34:28 [DBG] 'AppDbContext' disposed.
+2026-03-04 02:34:28 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:34:28 [INF] Request finished HTTP/1.1 POST http://192.168.56.1:5171/auth/login - 200 null application/json; charset=utf-8 1084.1921ms
+2026-03-04 02:34:28 [INF] Request starting HTTP/1.1 OPTIONS http://192.168.56.1:5171/auth/getUserInfo - null null
+2026-03-04 02:34:28 [DBG] 1 candidate(s) found for the request path '/auth/getUserInfo'
+2026-03-04 02:34:28 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-03-04 02:34:28 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-03-04 02:34:28 [INF] CORS policy execution successful.
+2026-03-04 02:34:28 [DBG] The request is a preflight request.
+2026-03-04 02:34:28 [DBG] Connection id "0HNJPDT111S79" completed keep alive response.
+2026-03-04 02:34:28 [INF] Request finished HTTP/1.1 OPTIONS http://192.168.56.1:5171/auth/getUserInfo - 204 null null 0.3464ms
+2026-03-04 02:34:28 [INF] Request starting HTTP/1.1 GET http://192.168.56.1:5171/auth/getUserInfo - application/json null
+2026-03-04 02:34:28 [DBG] 1 candidate(s) found for the request path '/auth/getUserInfo'
+2026-03-04 02:34:28 [DBG] Endpoint 'AuthController.GetUserInfo (server)' with route pattern 'auth/getUserInfo' is valid for the request path '/auth/getUserInfo'
+2026-03-04 02:34:28 [DBG] Request matched endpoint 'AuthController.GetUserInfo (server)'
+2026-03-04 02:34:28 [DBG] The request has an origin header: 'http://localhost:5173'.
+2026-03-04 02:34:28 [INF] CORS policy execution successful.
+2026-03-04 02:34:28 [DBG] Successfully validated the token.
+2026-03-04 02:34:28 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2026-03-04 02:34:28 [DBG] Authorization was successful.
+2026-03-04 02:34:28 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:34:28 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-03-04 02:34:28 [INF] Executing endpoint 'AuthController.GetUserInfo (server)'
+2026-03-04 02:34:28 [INF] Route matched with {action = "GetUserInfo", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserInfo() on controller AuthController (server).
+2026-03-04 02:34:28 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-03-04 02:34:28 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-03-04 02:34:28 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-03-04 02:34:28 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-03-04 02:34:28 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-03-04 02:34:28 [DBG] Executing controller factory for controller AuthController (server)
+2026-03-04 02:34:28 [DBG] Executed controller factory for controller AuthController (server)
+2026-03-04 02:34:28 [DBG] Entity Framework Core 10.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:10.0.0+7624373747b28d693b45cea8174471d4b312e2a5' with options: None
+2026-03-04 02:34:28 [DBG] Creating DbConnection.
+2026-03-04 02:34:28 [DBG] Created DbConnection. (0ms).
+2026-03-04 02:34:28 [DBG] Opening connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] Opened connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-03-04 02:34:28 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-03-04 02:34:28 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2026-03-04 02:34:28 [DBG] Executing DbCommand [Parameters=[@_userContextService_GetUserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BaseProggress", u."Email", u."Name", u."PasswordHash", u."SpecialProggress", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Id" = @_userContextService_GetUserId
+LIMIT 1
+2026-03-04 02:34:28 [INF] Executed DbCommand (6ms) [Parameters=[@_userContextService_GetUserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BaseProggress", u."Email", u."Name", u."PasswordHash", u."SpecialProggress", u."TaggedBaseIds", u."TaggedSpecialIds", u."WrongBaseIds", u."WrongSpecialIds"
+FROM "Users" AS u
+WHERE u."Id" = @_userContextService_GetUserId
+LIMIT 1
+2026-03-04 02:34:28 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-03-04 02:34:28 [DBG] Closing data reader to 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] A data reader for 'QuizDb' on server 'tcp://127.0.0.1:5432' is being disposed after spending 1ms reading results.
+2026-03-04 02:34:28 [DBG] Closing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] Closed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:34:28 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-03-04 02:34:28 [DBG] No information found on request to perform content negotiation.
+2026-03-04 02:34:28 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-03-04 02:34:28 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-03-04 02:34:28 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-03-04 02:34:28 [INF] Executing OkObjectResult, writing value of type 'ServiceResponse`1[[UserDto, server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-04 02:34:28 [INF] Executed action AuthController.GetUserInfo (server) in 11.8742ms
+2026-03-04 02:34:28 [INF] Executed endpoint 'AuthController.GetUserInfo (server)'
+2026-03-04 02:34:28 [DBG] Connection id "0HNJPDT111S79" completed keep alive response.
+2026-03-04 02:34:28 [DBG] 'AppDbContext' disposed.
+2026-03-04 02:34:28 [DBG] Disposing connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432'.
+2026-03-04 02:34:28 [DBG] Disposed connection to database 'QuizDb' on server 'tcp://127.0.0.1:5432' (0ms).
+2026-03-04 02:34:28 [INF] Request finished HTTP/1.1 GET http://192.168.56.1:5171/auth/getUserInfo - 200 null application/json; charset=utf-8 19.4682ms
+2026-03-04 02:35:24 [DBG] Connection id "0HNJPDT111S79" received FIN.
+2026-03-04 02:35:24 [DBG] Connection id "0HNJPDT111S79" disconnecting.
+2026-03-04 02:35:24 [DBG] Connection id "0HNJPDT111S79" stopped.
+2026-03-04 02:35:24 [DBG] Connection id "0HNJPDT111S79" sending FIN because: "The Socket transport's send loop completed gracefully."

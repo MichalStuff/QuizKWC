@@ -96,7 +96,7 @@ namespace server.Migrations
 
                     b.ToTable("SpecialAnswers");
 
-                    b.HasAnnotation("Relational:JsonPropertyName", "awnsers");
+                    b.HasAnnotation("Relational:JsonPropertyName", "answers");
                 });
 
             modelBuilder.Entity("SpecialQuestion", b =>
@@ -131,6 +131,9 @@ namespace server.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BaseProggress")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
@@ -142,6 +145,9 @@ namespace server.Migrations
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("SpecialProggress")
+                        .HasColumnType("integer");
 
                     b.PrimitiveCollection<List<int>>("TaggedBaseIds")
                         .IsRequired()

@@ -51,5 +51,17 @@ public class QuestionController : ControllerBase
         return await _questionService.GetSpecialQuestionsQuantity();
     }
 
+    [HttpPost("base/list")]
+    public async Task<ServiceResponse<List<QuestionDto>>> GetBaseQuestionList([FromBody] List<int> ids)
+    {
+        return await _questionService.GetBaseQuestionsById(ids);
+    }
+
+    [HttpPost("special/list")]
+    public async Task<ServiceResponse<List<QuestionDto>>> GetSpecialQuestionList([FromBody] List<int> ids)
+    {
+        return await _questionService.GetSpecialQuestionsById(ids);
+    }
+
 
 }

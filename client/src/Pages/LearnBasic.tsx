@@ -23,7 +23,6 @@ const LearnBasic = ({
   const [error, setError] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [tagged, setTagged] = useState<boolean>(false);
-  //   const [userAnswer, setUserAnswer] = useState<number>();
   const [questionCount, setQuestionCount] = useState<number>(1);
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
@@ -107,6 +106,11 @@ const LearnBasic = ({
       const result = data.data as QuestionType;
       setQuestion(result);
       setLoading(false);
+      if (userData?.taggedBaseIds.includes(id)) {
+        setTagged(true);
+      } else {
+        setTagged(false);
+      }
     } catch (err) {
       console.log(err);
 
@@ -114,16 +118,27 @@ const LearnBasic = ({
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (questionQuantity !== null && questionQuantity !== undefined) {
       if (questionCount + 1 < questionQuantity) {
         setLoading(true);
         GetQuestion(questionCount + 1);
         setQuestionCount(questionCount + 1);
         setIsFinished(false);
+
         if (userData !== null) {
           const temp = { ...userData, baseProgress: questionCount + 1 };
           handleUserData(temp);
+          const reqOptions: RequestInit = {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(questionCount + 1),
+          };
+
+          await fetch(`${apiUrl}/auth/baseProgress`, reqOptions);
         }
       } else {
         setLoading(true);
@@ -131,8 +146,19 @@ const LearnBasic = ({
         setQuestionCount(1);
         setIsFinished(true);
         if (userData !== null) {
-          const temp = { ...userData, baseProgress: 0 };
+          const temp = { ...userData, baseProgress: 1 };
           handleUserData(temp);
+          const reqOptions: RequestInit = {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(1 + 1),
+          };
+          // console.log(reqOptions);
+
+          fetch(`${apiUrl}/auth/baseProgress`, reqOptions);
         }
       }
     }
@@ -140,7 +166,7 @@ const LearnBasic = ({
 
   const handlePrevious = () => {
     if (questionQuantity !== null && questionQuantity !== undefined) {
-      if (questionCount > 0) {
+      if (questionCount > 1) {
         setLoading(true);
         GetQuestion(questionCount - 1);
         setQuestionCount(questionCount - 1);
@@ -148,6 +174,17 @@ const LearnBasic = ({
         if (userData !== null) {
           const temp = { ...userData, baseProgress: questionCount - 1 };
           handleUserData(temp);
+          const reqOptions: RequestInit = {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(questionCount - 1),
+          };
+          // console.log(reqOptions);
+
+          fetch(`${apiUrl}/auth/baseProgress`, reqOptions);
         }
       }
     }
@@ -158,7 +195,7 @@ const LearnBasic = ({
       try {
         let id = userData !== null ? userData.baseProgress : questionCount;
         id = id === 0 ? 1 : id;
-        console.log(`${apiUrl}/api/Question/base/${id}`);
+        // console.log(`${apiUrl}/api/Question/base/${id}`);
 
         const response = await fetch(`${apiUrl}/api/Question/base/${id}`);
         const result = await response.json();
@@ -184,6 +221,8 @@ const LearnBasic = ({
 
         if (userData?.taggedBaseIds.includes(id)) {
           setTagged(true);
+        } else {
+          setTagged(false);
         }
       } catch (err) {
         console.log(err);
@@ -192,9 +231,9 @@ const LearnBasic = ({
     };
 
     LoadData();
-  }, [apiUrl]);
+  }, [apiUrl, userData]);
 
-  if (error == true) return <Error message={"dupa"} />;
+  if (error == true) return <Error />;
 
   return (
     <div className="learn">
@@ -223,7 +262,6 @@ const LearnBasic = ({
             />
           ) : null}
 
-          {/* if(ques) */}
           <div className="learn__bottom">
             <Button
               text="Poprzednie"

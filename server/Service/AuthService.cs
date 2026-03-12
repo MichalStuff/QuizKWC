@@ -286,11 +286,37 @@ public class AuthService : IAuthService
         {
             Id = user.Id,
             Name = user.Name,
+            BaseProgress = user.BaseProggress,
+            SpecialProgress = user.SpecialProggress,
             WrongBaseIds = user.WrongBaseIds,
             WrongSpecialIds = user.WrongSpecialIds,
             TaggedBaseIds = user.TaggedBaseIds,
             TaggedSpecialIds = user.TaggedSpecialIds
         };
         return new ServiceResponse<UserDto>(userDto,true,"User info retrieved");
+    }
+
+    public async Task<ServiceResponse<string>> UpdateBaseProgress(int baseProgress)
+    {
+        var user = _dbcontext.Users.FirstOrDefault(u => u.Id == _userContextService.GetUserId);
+        if(user == null)
+        {
+            return new ServiceResponse<string>("User not found") { Success = false };
+        }
+        user.BaseProggress = baseProgress;
+        await _dbcontext.SaveChangesAsync();
+        return new ServiceResponse<string>("Base Progres Updated"){Success = true};
+    }
+
+    public async Task<ServiceResponse<string>> UpdateSpecialProgress(int specialProgress)
+    {
+        var user = _dbcontext.Users.FirstOrDefault(u => u.Id == _userContextService.GetUserId);
+        if(user == null)
+        {
+            return new ServiceResponse<string>("User not found") { Success = false };
+        }
+        user.SpecialProggress = specialProgress;
+        await _dbcontext.SaveChangesAsync();
+        return new ServiceResponse<string>("Special Progres Updated"){Success = true};
     }
 }

@@ -83,4 +83,17 @@ public class AuthController : ControllerBase
     {
         return Ok(await _authService.GetUserInfo());
     }
+    [HttpPatch("baseProgress")]
+    public async Task<IActionResult> UpdateBaseProgress([FromBody] int progress)
+    {
+        return Ok(await _authService.UpdateBaseProgress(progress));
+    }
+
+    [HttpPatch("specialProgress")]
+    public async Task<IActionResult> UpdateSpecialProgress([FromBody] int progress)
+    {
+        return Ok(await _authService.UpdateSpecialProgress(progress));
+    }
+
+
 }
